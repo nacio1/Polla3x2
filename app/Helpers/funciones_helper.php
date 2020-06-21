@@ -57,31 +57,33 @@ function ordernarJugadas(array $jugadas) {
 }
 
 function chequearRetirosJugadas(array $jugadas) {
-    $retiradosModel = new RetiradosModel();   
+    $retiradosModel = new RetiradosModel();  
+    $jornadaModel = new JornadaModel(); 
     foreach($jugadas as &$jugada) {		
         $retirados = $retiradosModel->where('jornada_id', $jugada['jornada_id'])->first();	
+        $jornada = $jornadaModel->where('jornada_id', $jugada['jornada_id'])->first();
         if ( in_array($jugada['1va_ejemplar'], explode(',', $retirados['1va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['1va_ejemplar'], $retirados['1va_retirados'], '1va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['1va_ejemplar'], $retirados['1va_retirados'], $jornada['1va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['1va_ejemplar'] = $jugada['1va_ejemplar'].'('.$nuevo_valor.')';
         }  
         if ( in_array($jugada['2va_ejemplar'], explode(',', $retirados['2va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['2va_ejemplar'], $retirados['2va_retirados'], '2va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['2va_ejemplar'], $retirados['2va_retirados'], $jornada['2va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['2va_ejemplar'] = $jugada['2va_ejemplar'].'('.$nuevo_valor.')';
         }
         if ( in_array($jugada['3va_ejemplar'], explode(',', $retirados['3va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['3va_ejemplar'], $retirados['3va_retirados'], '3va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['3va_ejemplar'], $retirados['3va_retirados'], $jornada['3va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['3va_ejemplar'] = $jugada['3va_ejemplar'].'('.$nuevo_valor.')';
         }
         if ( in_array($jugada['4va_ejemplar'], explode(',', $retirados['4va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['4va_ejemplar'], $retirados['4va_retirados'], '4va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['4va_ejemplar'], $retirados['4va_retirados'], $jornada['4va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['4va_ejemplar'] = $jugada['4va_ejemplar'].'('.$nuevo_valor.')';
         }
         if ( in_array($jugada['5va_ejemplar'], explode(',', $retirados['5va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['5va_ejemplar'], $retirados['5va_retirados'], '5va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['5va_ejemplar'], $retirados['5va_retirados'], $jornada['5va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['5va_ejemplar'] = $jugada['5va_ejemplar'].'('.$nuevo_valor.')';
         }
         if ( in_array($jugada['6va_ejemplar'], explode(',', $retirados['6va_retirados'])) ) {
-            $nuevo_valor = nuevoValor($jugada['6va_ejemplar'], $retirados['6va_retirados'], '6va_ejemplares');//Nuevo valor para las jugadas
+            $nuevo_valor = nuevoValor($jugada['6va_ejemplar'], $retirados['6va_retirados'], $jornada['6va_ejemplares']);//Nuevo valor para las jugadas
             $jugada['6va_ejemplar'] = $jugada['6va_ejemplar'].'('.$nuevo_valor.')';
         }        			
     }	
@@ -94,7 +96,7 @@ function nuevoValor($numero, $retirados, $num_ejemplares) {
 
     do {
         //Si es mayor al numero de ejemplares de esa valida, vale 1     
-        if($nuevo_valor > $GLOBALS[$num_ejemplares]) {
+        if($nuevo_valor > $num_ejemplares) {
             $nuevo_valor = 1;
         } 
         //chequear si el numero del nuevo valor ya esta retirado
