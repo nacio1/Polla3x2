@@ -1,0 +1,19 @@
+$primary-color: #16a085;
+$secondary-color: #2f3640;
+$asphalt: #34495e;
+$red-color: #b33939;
+$blue-color: #3498db;
+
+
+@function set-text-color($color) {
+    @if(lightness($color) > 70) {
+        @return #333;
+    } @else {
+        @return #fff;
+    }    
+}
+
+@mixin set-background($color) {
+    background-color: $color;
+    color: set-text-color($color);
+}

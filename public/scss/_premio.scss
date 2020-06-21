@@ -1,0 +1,86 @@
+.premio {
+    .card-header{
+        @include set-background($asphalt);
+        font-size: 1.2rem; 
+        @include mobile {
+            font-size: 1rem;        
+        }          
+    }
+    .card-footer{            
+        @include set-background(#fff);
+        color: $red-color;
+        font-weight: 700;
+        font-size: 1.2rem;
+    }
+    .list-group{
+        font-weight: 500;
+    }
+
+    .list-group-item {
+        @include set-background(#ecf0f1);
+    }
+}
+
+.toggle-button-premio {
+    cursor: pointer;
+}
+
+.jugar-section {
+    .premio {        
+        border-radius: 0;
+        margin-left: 2rem;         
+    
+        @include tablet {
+            .list-group {
+                display: none;
+            }
+            margin-left: 0;      
+            .d-flex {
+                justify-content: space-around !important;
+            }  
+        }       
+    }   
+}
+
+.toggle-button-premio {
+    cursor: pointer;
+}
+
+.puntuacion-premio-container{
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    .card-header{ 
+        text-align: center;
+    }
+    .list-group{
+        flex-direction: row;
+        justify-content: center;
+        @include set-background(#ecf0f1);
+    }
+
+    .d-flex {
+        span:first-child {
+            margin-right: 1rem;
+        }
+        span:last-child {
+            margin-left: 1rem;
+        }
+    } 
+    @include tablet {
+        .list-group {
+            display: none;
+            flex-direction: column;
+            text-align: center;
+        }             
+        .d-flex {
+            justify-content: space-around !important;
+            span:first-child {
+                margin-right: 0;
+            }
+            span:last-child {
+                margin-left: 0;
+            }
+        }  
+    }  
+}

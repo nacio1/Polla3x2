@@ -1,0 +1,65 @@
+.side-bar{
+    grid-area: sidebar;
+    @include set-background($asphalt);
+    height: 100%;
+    display: flex;    
+    flex-direction: column;        
+    a {
+        color: #fff;                   
+    }   
+
+    .user-container {
+        margin-top: 1rem;
+        padding: .5rem;
+        font-size: 1rem;
+        text-align: center;
+        .user-name{
+            font-size: 1.5rem;
+            text-decoration: none;
+        }      
+        @include desktop{
+            margin-top: 0;
+        }   
+    }
+    .menu{
+        list-style: none;
+        margin-top: 2rem;
+        padding: 0;
+        width: 100%;                     
+        display: flex;
+        align-items: center;
+        flex-direction: column; 
+        font-size: 1.3rem;    
+        li{    
+            width: 100%;  
+            &:first-child {
+                border-top: 2px solid darken($asphalt, 10%);
+               } 
+            a{
+               display: block;                
+               text-align: center; 
+               padding: .5rem 0;
+               border-bottom: 2px solid darken($asphalt, 10%);
+               text-decoration: none;
+               font-weight: 300;               
+               &:hover{
+                   @include set-background(darken($asphalt, 5%));
+               }              
+            }    
+            .active{
+                @include set-background(darken($asphalt, 5%));
+           }          
+        }  
+    }       
+    
+    @include desktop {        
+        position: absolute;        
+        opacity: 0;   
+        z-index: 1000;       
+        top: 0;
+        left: -240px;
+        width: 240px;
+        height: 100vh;
+        transition: left .3s ease-in-out, opacity .3s ease-in-out;
+    }    
+}

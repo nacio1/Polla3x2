@@ -1,0 +1,120 @@
+.jugar-container{
+    .nav-link{
+        color: #333;
+        &:hover{
+            color: lighten(#333, 20%);
+        }
+    }
+    .nav-pills .nav-link.active {
+        @include set-background($primary-color);    
+    }      
+}    
+
+
+.jugar-section {
+    display: flex;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding: 0 1rem;    
+    h1{
+        font-weight: 400;
+    }
+    @include tablet {
+        flex-direction: column;
+        align-items: center; 
+        h1 {
+            text-align: center;
+        }
+        .jugar-wrapper{
+            width: 100%;
+        }
+
+        .premio-container {
+            order: -1;
+            text-align: center;
+            width: 80%;
+            margin-bottom: 1rem;
+            
+        }
+
+    }
+
+    @include mobile {
+        align-items: flex-start;
+        padding: 0;
+        .premio-container {            
+            width: 100%;
+            margin-bottom: 1rem;
+            .list-group {
+                display: none;
+            }
+        }
+    }
+}
+
+.jugar-section form {
+    flex: 0 0 auto;
+}
+
+.valida-wrapper {
+    display: flex;
+    margin-top: .5rem;
+}
+
+.valida-wrapper .valida-index{    
+    @include set-background($secondary-color);
+    font-weight: 600;
+} 
+
+.jugar-section .form-check {
+    display: table;
+    float: left;      
+}
+
+
+.jugar-section label {   
+    display: table-row;    
+    text-align: center;
+    color: lighten(#333, 20%);
+    font-weight: 600;
+}
+
+.jugar-section .input-check-wrapper {
+    border: solid 1px $secondary-color;
+    border-width: 1px 0 1px 1px;
+    padding: .5rem .6rem;
+    cursor: pointer;
+    @include large-desktop {
+        padding: .3rem .4rem;
+    }
+    @include tablet {
+        padding: .5rem .6rem;        
+    }
+    @include mobile {
+        padding: .3rem .4rem;
+    }
+    @include small-mobile {
+        padding: .1rem .2rem;
+    }
+}
+
+.jugar-section .form-check-input{   
+    display: table-row;
+    min-width: 1rem;
+    width: 100%;   
+    margin-right: .5rem;
+    cursor: pointer;
+}
+
+.input-checked {
+    background-color: rgba(255, 242, 0, .5);
+}
+
+.jugar-section .valida-wrapper > *:last-child .input-check-wrapper{
+    border-right: solid 1px $secondary-color;
+}
+
+.form-check-inline {
+    margin-right: 0;
+}
+

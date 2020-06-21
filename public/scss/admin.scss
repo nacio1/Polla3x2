@@ -1,0 +1,61 @@
+@import 'variables';
+@import 'responsive';
+@import 'resets';
+
+.section-title {
+    @include set-background($primary-color);
+}
+
+.dashboard {
+    .nav-pills .nav-link {
+        width: 200px;
+        margin: 0 .5rem .5rem .5rem;        
+        @include set-background($primary-color);    
+    } 
+
+    .nav-link:hover{
+        @include set-background(darken($primary-color, 5%));  
+    }
+
+    @include mobile {        
+        .nav-link {
+            width: 100% !important; 
+            margin: .5rem 0 !important;                      
+        }
+    }
+}
+
+#abonar-form {
+    @include mobile {
+        display: block;
+        .form-control {
+            width: 100%;
+        }
+
+        .form-group > .select2-container--bootstrap .select2-selection--single {
+            margin-left: -.2rem;    
+            padding: .5rem .65rem;
+        }
+
+        .btn-wrapper {
+            text-align: center;
+            margin-top: .5rem;
+        }
+        
+    }
+}
+
+#retirados-form {
+    @include mobile {
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+        }
+        .form-group input, select{
+            margin-bottom: .5rem;
+        }
+    }
+    
+}

@@ -1,0 +1,27 @@
+footer {
+    text-align: center;
+    padding: 1rem 0;
+    @include set-background($secondary-color);
+
+    .row {
+        margin-bottom: 1rem;
+        a{
+            color: #fff;
+            &:hover{
+                text-decoration: none;
+                color: darken(#fff, 10%);
+            }
+            @include mobile {
+                margin-bottom: 1rem;
+            }
+        }        
+    }    
+
+    p {
+        margin: 0;
+    }
+   
+    @include desktop {
+        margin-top: auto;
+    }
+}

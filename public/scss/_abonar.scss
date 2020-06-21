@@ -1,0 +1,115 @@
+.abonar-container {
+    max-width: 970px;
+    @include desktop {
+        h1 {
+            font-size: 2rem;
+        }   
+    }
+    @include tablet {
+        .cuentas-container {
+            display: flex;
+        }  
+    }
+}
+
+.abono-pasos{
+    text-align: center;
+    h1 {
+        color: $blue-color;
+        font-weight: 500;
+        margin-bottom: 2rem; 
+        @include tablet {
+            border-bottom: 2px solid $blue-color;
+            padding-bottom: .5rem;
+            font-size: 2.5rem;
+        }      
+        @include mobile {            
+            font-size: 2rem;
+        }  
+    }
+
+    h2 {
+        font-size: 1.5rem;
+        margin-top: .75rem;
+        border: 2px solid $blue-color;
+        max-width: 300px;
+        margin: 0 auto;
+        padding: .5rem;
+        .number {
+            @include set-background($blue-color);
+            border-radius: 50%;
+            padding: .1rem .3rem;
+        }     
+        @include desktop {
+            font-size: 1.2rem;
+        }    
+        @include tablet {
+            font-size: 1.5rem;
+        }  
+        @include mobile {            
+            font-size: 1.2rem;
+        }  
+    }
+    p {
+        font-size: .9rem;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: .5rem;
+        color: #666;
+        max-width: 290px;        
+    }
+
+    .badge {
+        font-size: 100%;
+        margin-bottom: 1rem;
+        @include desktop {
+            font-size: 90%;
+        }  
+    }
+
+    .btn-success {
+        @include set-background($primary-color);
+        &:hover {
+            @include set-background(darken($primary-color, 5%));
+        }
+    }  
+}
+
+.cuentas-bancarias {
+    border: 1px solid #ddd;  
+    list-style: none;
+    padding: 0;
+    text-align: start;  
+
+    @include desktop{
+        h2 {
+            font-size: 1.5rem;
+        }    
+    }
+
+    @include tablet {
+        display: inline-block;
+        margin: 0 auto;
+        text-align: center;
+        margin-top: 3rem;
+    }  
+
+    .title {
+        padding: 0.75rem;
+        @include set-background($blue-color);
+    }   
+
+    .bank-item{
+        padding: 1rem;
+        color: #535c68;
+        font-weight: bold;
+        border-bottom: 1px solid #ddd;
+        text-align: center;
+    }
+    
+    p {
+        margin-bottom: 0;
+    }
+
+
+}

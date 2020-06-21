@@ -1,0 +1,143 @@
+@import 'variables';
+@import 'responsive';
+@import 'resets';
+@import 'tables';
+
+body{
+    font-family: Roboto, san-serif;
+    @include set-background(#f3f3f3);
+}
+
+.error {
+    color: $red-color;
+}
+
+.dataTables_info, .dataTables_paginate, .dataTables_length {
+    @include mobile {
+        font-size: .8rem;
+    }    
+}
+
+.dataTables_filter {
+    @include mobile {
+        font-size: .9rem;
+    }    
+}
+
+.dt-buttons {
+    @include tablet {
+        width: auto !important;
+        margin-top: .5rem;
+        display: block;
+        text-align: right !important;
+    }
+}
+
+.navbar-toggler{
+    display: none;
+    @include desktop {
+        display: block;
+    }
+}
+
+.nav-open{
+    left: 0 !important;
+    opacity: 1 !important;
+}
+
+.modal-header {
+    @include set-background($primary-color);
+}
+
+.modal-body{
+    background-color: #f3f3f3;
+}
+
+.modal-footer{
+    @include set-background($secondary-color);
+}
+
+.form-group > .select2-container--bootstrap {
+    width: auto;
+    flex: 1 1 auto;
+    
+}
+
+.form-group > .select2-container--bootstrap .select2-selection--single {
+    height: 38px;
+    line-height: 21px;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;    
+    min-width: 208px;
+    @include mobile {
+        min-width: auto;
+    }
+}
+
+.wrapper {
+    width: 100%;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: 15% auto;
+    grid-template-rows: auto 1fr;   
+    grid-template-areas: 
+        "sidebar topbar"
+        "sidebar main"
+        "footer footer"
+    ; 
+    @include large-desktop {
+        grid-template-columns: 20% auto; 
+    }
+    @include desktop{        
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+    }
+}    
+
+.top-bar{
+    grid-area: topbar;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 1rem;
+    @include set-background($primary-color); 
+    a {
+        color: $secondary-color;               
+    }
+
+    a:last-child {
+        font-size: 1.2rem;
+        line-height: 2.5rem;               
+    }
+
+    .hamburguer {
+        @include set-background($asphalt);
+        border-radius: 0;
+        line-height: inherit;
+        margin-right: .5rem;
+        height: 100%;
+    }
+}
+
+.main-content {
+    grid-area: main;  
+    @include set-background(#fff);
+    margin: 2rem;
+    padding: 1rem;  
+    @include desktop {
+        margin: .5rem;
+    }
+}
+
+@import 'footer';
+
+footer {
+    grid-area: footer;    
+}
+
+@import 'sidebar';
+@import 'jugar';
+@import 'premio';
+@import 'abonar';
