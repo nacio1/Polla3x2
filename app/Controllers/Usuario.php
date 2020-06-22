@@ -7,9 +7,14 @@ class Usuario extends BaseController
 {
 	/*public function index()
 	{
-
 		return view('welcome_message');
     }*/
+    public function perfil() {
+        $usuarioModel = new UsuarioModel();
+        $data['usuario'] = $usuarioModel->getUserByUsuario(session('usuario'));
+        $data['title'] = 'Perfil';
+        return view('jugador/perfil', $data);
+    }
 
     public function login() {  
         $data = [];                 

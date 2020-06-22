@@ -35,7 +35,7 @@ class UsuarioModel extends Model
 
     public function getUserByUsuario(string $usuario) {
         $builder = $this->db->table('usuarios'); 
-        $query = $builder->where('usuario', $usuario)->get()->getResultArray();
+        $query = $builder->where('usuario', $usuario)->get()->getRowArray();
         return $query;
     }
 

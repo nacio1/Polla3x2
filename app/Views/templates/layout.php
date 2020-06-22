@@ -42,7 +42,7 @@ $uri = service('uri');
               <i class="fas fa-times"></i>
             </button>  
             <div class="user-container">
-                <a href="#" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
+                <a href="jugador/perfil" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
                 <p>Saldo: <span><?= session('usuario_saldo') ?></span></p>                
             </div>
             <ul class="menu">

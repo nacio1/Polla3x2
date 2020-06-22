@@ -44,6 +44,8 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->get('puntuacion', 'jugador/Puntuacion::index');	
 
 	$routes->get('retirar', 'jugador/Retirar::index');
+	$routes->get('perfil', 'Usuario::perfil');
+	$routes->get('salir', 'Usuario::cerrarSesion');
 });
 
 $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
