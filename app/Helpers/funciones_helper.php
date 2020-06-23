@@ -15,7 +15,7 @@ function setSwaMessage(string $title,  string $text, int $type = 1) {
         case 2:            
             $message = "Swal.fire(
                 'Oops...',
-                'Algo saliop mal!',
+                'Algo salio mal!',
                 'error'
                 )";
             break;

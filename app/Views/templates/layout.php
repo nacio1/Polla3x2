@@ -35,15 +35,23 @@ $uri = service('uri');
               <i class="fas fa-bars"></i>
             </button>        
             <a class="navbar-brand mr-auto" href="#">Polla3x2</a>
-            <a href="salir" data-toggle="tooltip" data-placement="bottom" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></a>           
+            <a href="<?= base_url('jugador/salir') ?>" data-toggle="tooltip" data-placement="bottom" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></a>           
         </section>
         <section class="side-bar shadow">
             <button class="navbar-toggler ml-auto" style="color: #fff;">
               <i class="fas fa-times"></i>
             </button>  
             <div class="user-container">
-                <a href="jugador/perfil" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
-                <p>Saldo: <span><?= session('usuario_saldo') ?></span></p>                
+                <a href="<?= base_url('jugador/perfil') ?>" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
+                <p>Saldo: <span><?= session('usuario_saldo') ?></span></p>  
+                <div class="user-menu-toggle" style="cursor: pointer">
+                    <i class="fas fa-sort-down"></i>
+                </div>             
+                <div class="user-menu">
+                    <a href="<?= base_url('jugador/mis-cuentas') ?>">Mis cuentas</a>
+                    <a href="<?= base_url('jugador/mis-transacciones') ?>">Mis transacciones</a>
+                    <a href="<?= base_url('jugador/salir') ?>">Cerrar sesión</a>
+                </div>  
             </div>
             <ul class="menu">
                 <li><a class="<?= ($uri->getSegment(1) == 'jugador' && ($uri->getSegment(2) == 'jugar' || $uri->getSegment(2) == '') ? 'active' : null) ?>" href="<?= base_url('jugador') ?>">Jugar</a></li>                                
@@ -85,6 +93,14 @@ $(document).ready(function(){
   $('body,html').click(function(e){     
       $('.side-bar').removeClass('nav-open');      
   });
+
+  $('.user-menu-toggle').on('click', function(){  
+        var icon = $(this).children();   
+        $(icon).toggleClass('fa-sort-down fa-sort-up');
+        $('.user-menu').toggle("slow", function() {
+            // Animation complete.            
+        });        
+    })
      
 });  
 </script> 

@@ -13,17 +13,28 @@
         padding: .5rem;
         font-size: 1rem;
         text-align: center;
+        p {
+            margin-bottom: 0;
+        }
         .user-name{
             font-size: 1.5rem;
             text-decoration: none;
-        }      
+        }  
+        .user-menu {           
+            display: none;
+            flex-direction: column;
+            font-size: 14px;
+            a{
+                display: block;
+            }
+        }    
         @include desktop{
             margin-top: 0;
         }   
     }
     .menu{
         list-style: none;
-        margin-top: 2rem;
+        margin-top: 1rem;
         padding: 0;
         width: 100%;                     
         display: flex;

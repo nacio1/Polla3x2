@@ -9,7 +9,7 @@ form {
 <?= $this->endSection() ?> 
 
 <?= $this->section('content') ?>
-<form id="perfil-form" method="POST" action="jugador-perfil">
+<form id="perfil-form" method="POST" action="perfil">
     <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
@@ -40,10 +40,12 @@ form {
             <input type="text" class="form-control" id="cedula" name="cedula" placeholder="Ingresa tu cédula" value="<?= $usuario['cedula'] ?>">
         </div>
     </div>
+    <?php if(!$usuario['cedula']) { ?>
     <div class="form-check text-muted" style="font-size: 14px">
         <input type="checkbox" class="form-check-input" id="checkbox" name="checkbox">
         <label class="form-check-label" for="exampleCheck1">Me comprometo a asegurar que los datos ingresados son correctos</label>
     </div>
+    <?php } ?>
     <div class="text-center mt-3">
         <button type="submit" class="btn btn-primary  ">Guardar</button>
     </div>    
@@ -51,5 +53,15 @@ form {
 <?= $this->endSection() ?> 
 
 <?= $this->section('js') ?>
+<?php if(isset($usuario['cedula'])) { ?>
+<script>
+$(document).ready(function(){
+    $('input[type=text]').removeClass('form-control');
+    $('input[type=text]').addClass('form-control-plaintext');
+});
+</script>
+    
 <script src="<?= base_url('js/perfil.js') ?>"></script>
+<?php } ?>
+
 <?= $this->endSection() ?> 

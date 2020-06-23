@@ -1,8 +1,10 @@
 $(document).ready(function(){
-    $('.toggle-button-premio').click(function(){
+    $('.toggle-button-premio').click(function(){  
+        var icon = $(this).children();   
+        $(icon).toggleClass('fa-plus fa-minus');
         $('.list-group').toggle("slow", function() {
-            // Animation complete.
-          });
+            // Animation complete.            
+        });        
     })
 
     if(!cierre) {

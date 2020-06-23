@@ -10,6 +10,7 @@ class UsuarioModel extends Model
     protected $allowedFields = [
         'nombre', 
         'apellido', 
+        'cedula', 
         'usuario_email', 
         'usuario', 
         'password',        

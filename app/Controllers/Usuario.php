@@ -1,6 +1,7 @@
 <?php namespace App\Controllers;
 
 use App\Models\UsuarioModel;
+use App\Models\BancosModel;
 use CodeIgniter\I18n\Time;
 
 class Usuario extends BaseController
@@ -8,14 +9,8 @@ class Usuario extends BaseController
 	/*public function index()
 	{
 		return view('welcome_message');
-    }*/
-    public function perfil() {
-        $usuarioModel = new UsuarioModel();
-        $data['usuario'] = $usuarioModel->getUserByUsuario(session('usuario'));
-        $data['title'] = 'Perfil';
-        return view('jugador/perfil', $data);
-    }
-
+    }*/   
+    
     public function login() {  
         $data = [];                 
         if($this->request->getMethod() == 'post') {
@@ -88,6 +83,60 @@ class Usuario extends BaseController
         }
 
         return view('registro', $data);
+    }
+
+    public function perfil() {
+        $usuarioModel = new UsuarioModel();
+        $data['usuario'] = $usuarioModel->getUserByUsuario(session('usuario'));
+        $data['title'] = 'Perfil';
+        if($postData = $this->request->getPost()) {
+            if(!$data['usuario']['cedula']) {
+                $rules = [
+                    'nombre' => 'required|min_length[2]|max_length[20]',
+                    'apellido' => 'required|min_length[2]|max_length[20]',                
+                    'cedula' => 'required|min_length[7]|max_length[8]|is_natural',                
+                ];
+                if($postData['password'] != '') {
+                    $rules['password'] = 'min_length[8]';
+                }
+    
+                if(! $this->validate($rules)) {
+                    $message = setSwaMessage('','', 2);                    
+                    return redirect()->to('perfil')->with('message', $message);
+                }else{
+                    $newUser = [
+                        'usuario_id' => session('usuario_id'),
+                        'nombre' => $postData['nombre'],
+                        'apellido' => $postData['apellido'],                   
+                        'cedula' => $postData['cedula']                   
+                    ];
+                    if($postData['password'] != '') {
+                        $newUser['password'] = $postData['password'];
+                    }
+    
+                    $usuarioModel->save($newUser);
+    
+                    $message = setSwaMessage('Perfil actualizado','Tu perfil fue actualizado');
+                    
+                    return redirect()->to('jugador')->with('message', $message);
+                }
+            }else{//if exist cedula 
+                $rules['password'] = 'min_length[8]';
+                if(! $this->validate($rules)) {
+                    $message = setSwaMessage('','', 2);                    
+                    return redirect()->to('perfil')->with('message', $message);
+                }else{
+                    $newUser['password'] = $this->request->getPost('password');
+                    $newUser['usuario_id'] = session('usuario_id');
+                    $usuarioModel->save($newUser);
+    
+                    $message = setSwaMessage('Contraseña actualizada','Tu contraseña ha sido cambiada');
+                    
+                    return redirect()->to('jugador')->with('message', $message);
+                }
+            }//else           
+        }//if post data
+        return view('jugador/perfil', $data);
     }
 
     public function emailExists() {
