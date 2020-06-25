@@ -32,7 +32,15 @@ function setSwaMessage(string $title,  string $text, int $type = 1) {
                     if(result.value) {
                         document.location.href = \"".base_url('jugador/abonar')."\";
                     }                        
-                })";    
+                })";  
+            break;
+        case 4:
+            $message = "Swal.fire(
+                '$title',
+                '$text',
+                'warning'
+                )";
+            break;
         default:
             # code...
             break;

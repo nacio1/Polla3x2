@@ -21,6 +21,17 @@ class CuentasBancariasModel extends Model {
         ->get()->getResultArray();
         return $query;
     }
+
+    public function getCuentaByUserAndCuentaId(string $usuario, int $cuenta_id) {
+        $builder = $this->db->table('cuentasbancarias');
+        $query = $builder
+        ->select('cuentasbancarias.cuenta_id, cuentasbancarias.numero_cuenta, cuentasbancarias.banco_id, bancos.nombre as nombre')        
+        ->join('bancos', 'cuentasbancarias.banco_id = bancos.banco_id')
+        ->where('cuenta_id', $cuenta_id)
+        ->where('usuario', $usuario)
+        ->get()->getRowArray();
+        return $query;
+    }
     
     public function getBancoByIdAndUser(int $banco_id, string $usuario, int $cuenta_id = null) {
         $builder = $this->db->table('cuentasbancarias');

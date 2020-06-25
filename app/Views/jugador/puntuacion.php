@@ -25,7 +25,7 @@
     </select>
 </div>   
 <h1 class="text-center" style="font-weight: 400">Puntuación</h1>
-<div class="row">
+<div class="row" style="overflow-x: auto">
     <div class="col-12">
         <table class="table datatables table-striped table-puntuacion dt-responsive nowrap" width="100%"> 
             <thead class="">

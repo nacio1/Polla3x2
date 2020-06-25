@@ -52,7 +52,7 @@ class Abonos extends BaseController
 		$abonoModel->update($abono_id, $data);
 		
 		$message = setSwaMessage('Listo', 'Abono rechazado');
-		return redirect()->back('')->with('message', $message);
+		return redirect()->back()->with('message', $message);
           
     }
 

@@ -12,6 +12,15 @@ body{
     color: $red-color;
 }
 
+.primary-btn {
+    @include set-background($primary-color);
+    border: none;
+    &:hover, &:focus {
+        @include set-background(lighten($primary-color, 5%));
+        border: none;
+    }
+}
+
 .dataTables_info, .dataTables_paginate, .dataTables_length {
     @include mobile {
         font-size: .8rem;
@@ -141,3 +150,4 @@ footer {
 @import 'jugar';
 @import 'premio';
 @import 'abonar';
+@import 'retirar';

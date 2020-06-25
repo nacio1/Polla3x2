@@ -92,7 +92,7 @@ nav .btn-danger:hover {
   background-color: #b33939;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   nav .container {
     padding: 0;
   }
@@ -115,13 +115,13 @@ nav .btn-danger:hover {
   animation: moveToLeft 2s;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-content h1 {
     font-size: 2.8rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .header-content h1 {
     font-size: 2rem;
   }
@@ -139,13 +139,13 @@ nav .btn-danger:hover {
   letter-spacing: 1px;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .header-content p {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .header-content p {
     font-size: 1rem;
     margin-top: .5rem;
@@ -163,7 +163,7 @@ nav .btn-danger:hover {
   background-color: #b33939;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .header-content .btn-danger {
     font-size: 1rem;
     margin-top: 0;
@@ -188,7 +188,7 @@ nav .btn-danger:hover {
   color: #fff;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .cards-section .card .card-header {
     font-size: 1rem;
   }
@@ -206,7 +206,7 @@ nav .btn-danger:hover {
   animation: moveToTop 1.5s .8s backwards;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .cards-section {
     margin-top: 0;
     padding-top: 2rem;
@@ -245,7 +245,7 @@ footer .row a:hover {
   color: #e6e6e6;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   footer .row a {
     margin-bottom: 1rem;
   }
@@ -255,7 +255,7 @@ footer p {
   margin: 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   footer {
     margin-top: auto;
   }

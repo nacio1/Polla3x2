@@ -24,14 +24,14 @@ input[type=number] {
   padding: .25rem 1rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .table .btn {
     padding: .1rem .2rem;
     font-size: .8rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .table {
     font-size: .8rem !important;
   }
@@ -44,7 +44,7 @@ input[type=number] {
   font-size: 1.5rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .table-abonos td > .fas, .table-abonos a > .fas {
     font-size: 1.2rem;
   }
@@ -77,19 +77,31 @@ body {
   color: #b33939;
 }
 
-@media (max-width: 576px) {
+.primary-btn {
+  background-color: #16a085;
+  color: #fff;
+  border: none;
+}
+
+.primary-btn:hover, .primary-btn:focus {
+  background-color: #19b698;
+  color: #fff;
+  border: none;
+}
+
+@media (max-width: 575px) {
   .dataTables_info, .dataTables_paginate, .dataTables_length {
     font-size: .8rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .dataTables_filter {
     font-size: .9rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .dt-buttons {
     width: auto !important;
     margin-top: .5rem;
@@ -102,7 +114,7 @@ body {
   display: none;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .navbar-toggler {
     display: block;
   }
@@ -140,7 +152,7 @@ body {
   min-width: 208px;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .form-group > .select2-container--bootstrap .select2-selection--single {
     min-width: auto;
   }
@@ -161,7 +173,7 @@ body {
   }
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .wrapper {
     display: flex;
     flex-direction: column;
@@ -206,7 +218,7 @@ body {
   padding: 1rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .main-content {
     margin: .5rem;
   }
@@ -232,7 +244,7 @@ footer .row a:hover {
   color: #e6e6e6;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   footer .row a {
     margin-bottom: 1rem;
   }
@@ -242,7 +254,7 @@ footer p {
   margin: 0;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   footer {
     margin-top: auto;
   }
@@ -291,7 +303,7 @@ footer {
   display: block;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .side-bar .user-container {
     margin-top: 0;
   }
@@ -335,7 +347,7 @@ footer {
   color: #fff;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .side-bar {
     position: absolute;
     opacity: 0;
@@ -372,7 +384,7 @@ footer {
   font-weight: 400;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .jugar-section {
     flex-direction: column;
     align-items: center;
@@ -391,7 +403,7 @@ footer {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .jugar-section {
     align-items: flex-start;
     padding: 0;
@@ -445,13 +457,13 @@ footer {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .jugar-section .input-check-wrapper {
     padding: .5rem .6rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .jugar-section .input-check-wrapper {
     padding: .3rem .4rem;
   }
@@ -489,7 +501,7 @@ footer {
   font-size: 1.2rem;
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .premio .card-header {
     font-size: 1rem;
   }
@@ -521,7 +533,7 @@ footer {
   margin-left: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .jugar-section .premio {
     margin-left: 0;
   }
@@ -535,12 +547,6 @@ footer {
 
 .toggle-button-premio {
   cursor: pointer;
-}
-
-.puntuacion-premio-container {
-  max-width: 700px;
-  margin-left: auto;
-  margin-right: auto;
 }
 
 .puntuacion-premio-container .card-header {
@@ -562,7 +568,7 @@ footer {
   margin-left: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .puntuacion-premio-container .list-group {
     display: none;
     flex-direction: column;
@@ -583,13 +589,13 @@ footer {
   max-width: 970px;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .abonar-container h1 {
     font-size: 2rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .abonar-container .cuentas-container {
     display: flex;
   }
@@ -605,7 +611,7 @@ footer {
   margin-bottom: 2rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .abono-pasos h1 {
     border-bottom: 2px solid #3498db;
     padding-bottom: .5rem;
@@ -613,7 +619,7 @@ footer {
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .abono-pasos h1 {
     font-size: 2rem;
   }
@@ -635,19 +641,19 @@ footer {
   padding: .1rem .3rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .abono-pasos h2 {
     font-size: 1.2rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .abono-pasos h2 {
     font-size: 1.5rem;
   }
 }
 
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .abono-pasos h2 {
     font-size: 1.2rem;
   }
@@ -667,7 +673,7 @@ footer {
   margin-bottom: 1rem;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .abono-pasos .badge {
     font-size: 90%;
   }
@@ -690,13 +696,13 @@ footer {
   text-align: start;
 }
 
-@media (max-width: 992px) {
+@media (max-width: 991px) {
   .cuentas-bancarias h2 {
     font-size: 1.5rem;
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .cuentas-bancarias {
     display: inline-block;
     margin: 0 auto;
@@ -721,5 +727,31 @@ footer {
 
 .cuentas-bancarias p {
   margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .retirar-title {
+    text-align: center;
+    border-bottom: 1px solid #acb5c2;
+  }
+}
+
+.retirar-form {
+  max-width: 600px;
+}
+
+.retirar-form option {
+  font-size: 14px;
+}
+
+.retirar-form .form-row {
+  border-bottom: 1px solid #acb5c2;
+}
+
+@media (max-width: 991px) {
+  .retirar-form {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 /*# sourceMappingURL=jugador.css.map */

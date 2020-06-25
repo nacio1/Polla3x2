@@ -9,7 +9,7 @@ form {
 <?= $this->endSection() ?> 
 
 <?= $this->section('content') ?>
-<form id="perfil-form" method="POST" action="perfil">
+<form id="perfil-form" method="POST" action="<?= base_url('jugador/perfil') ?>">
     <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
         <div class="col-sm-10">
@@ -53,15 +53,13 @@ form {
 <?= $this->endSection() ?> 
 
 <?= $this->section('js') ?>
-<?php if(isset($usuario['cedula'])) { ?>
+<?php if($usuario['cedula']) { ?>
 <script>
 $(document).ready(function(){
     $('input[type=text]').removeClass('form-control');
     $('input[type=text]').addClass('form-control-plaintext');
 });
-</script>
-    
-<script src="<?= base_url('js/perfil.js') ?>"></script>
+</script>  
 <?php } ?>
-
+<script src="<?= base_url('js/perfil.js') ?>"></script>
 <?= $this->endSection() ?> 

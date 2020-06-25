@@ -17,7 +17,7 @@ class CustomRules {
 
     public function checkBancoUse(string $str, string $fields, array $data){
         $cuentasBancariasModel = new CuentasBancariasModel();
-        if(!$data['cuenta_id']){
+        if(!isset($data['cuenta_id'])){
             if($cuentasBancariasModel->getBancoByIdAndUser($data['banco'], session('usuario'))){
                 return false;
             }
@@ -36,5 +36,12 @@ class CustomRules {
             return false;
         }
         return true;            
+    }  
+    public function checkNumCuentaOfUser(string $str, string $fields, array $data){
+        $cuentasBancariasModel = new CuentasBancariasModel();        
+        if($cuentasBancariasModel->getCuentaByUserAndCuentaId(session('usuario'), $data['banco'])){
+            return true;
+        }
+        return false;            
     }  
 }

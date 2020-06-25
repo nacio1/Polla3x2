@@ -43,7 +43,8 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->get('puntuacion/(:any)', 'jugador\Puntuacion::index/$1');
 	$routes->get('puntuacion', 'jugador/Puntuacion::index');	
 
-	$routes->get('retirar', 'jugador/Retirar::index');
+	$routes->get('retirar', 'jugador/Retirar::index');	
+	$routes->post('agregar-retiro', 'jugador/Retirar::crearRetiro');	
 	$routes->add('perfil', 'Usuario::perfil');
 	$routes->add('mis-cuentas', 'jugador/Bancos::misCuentas');
 	$routes->post('agregar-cuenta', 'jugador/Bancos::registrarCuenta');

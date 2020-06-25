@@ -220,7 +220,7 @@ $(document).ready(function(){
                     $('#aprobar-button').attr("href", 
                     "<?= base_url() ?>"+"/admin/abonos/abonar/"+response.usuario+"/"+response.monto+"/"+response.abono_id);
                     $('#rechazar-button').attr("href", 
-                    "<?= base_url() ?>"+"/admin/abonos/abonar/"+response.abono_id);                     
+                    "<?= base_url() ?>"+"/admin/abonos/rechazarAbono/"+response.abono_id);                     
                 }
             }
         });

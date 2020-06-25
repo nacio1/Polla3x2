@@ -118,7 +118,7 @@ class Usuario extends BaseController
     
                     $message = setSwaMessage('Perfil actualizado','Tu perfil fue actualizado');
                     
-                    return redirect()->to('jugador')->with('message', $message);
+                    return redirect()->to('jugar')->with('message', $message);
                 }
             }else{//if exist cedula 
                 $rules['password'] = 'min_length[8]';
