@@ -161,7 +161,6 @@ $uri = service('uri');
 <?= $this->endSection() ?>
 
 <?= $this->section('js') ?>
-
 <script src="<?= base_url('assets/datatables/datatables.min.js') ?>"></script>
 <script src="<?= base_url('js/mis-jugadas.js') ?>"></script>
 <script>
