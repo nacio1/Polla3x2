@@ -65,14 +65,7 @@
         @include desktop {
             font-size: 90%;
         }  
-    }
-
-    .btn-success {
-        @include set-background($primary-color);
-        &:hover {
-            @include set-background(darken($primary-color, 5%));
-        }
-    }  
+    }      
 }
 
 .cuentas-bancarias {

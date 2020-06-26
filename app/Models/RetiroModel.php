@@ -29,7 +29,7 @@ class RetiroModel extends Model {
     public function getByUser(string $usuario) {
         $builder = $this->db->table('retiros');
         $query = $builder
-        ->select('retiros.retiro_id, retiros.usuario, retiros.monto,DATE_FORMAT(retiros.fecha_retiro, "%M %d") AS fecha_retiro, retiros.status,
+        ->select('retiros.retiro_id, retiros.usuario, retiros.monto,DATE_FORMAT(retiros.fecha_retiro, "%d/%m") AS fecha_retiro, retiros.status,
         bancos.nombre as banco_nombre, cuentasbancarias.numero_cuenta')
         ->join('cuentasbancarias', 'retiros.cuenta_id = cuentasbancarias.cuenta_id')
         ->join('bancos', 'cuentasbancarias.banco_id = bancos.banco_id')

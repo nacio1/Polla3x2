@@ -41,7 +41,7 @@ class AbonoModel extends Model
     public function getByUser(string $usuario) {
         $builder =    $this->db->table('abonos');     
         $query = $builder
-        ->select('abonos.abono_id, abonos.usuario, abonos.monto, DATE_FORMAT(abonos.fecha_abono, "%M %d") AS fecha_abono, abonos.status,
+        ->select('abonos.abono_id, abonos.usuario, abonos.monto, DATE_FORMAT(abonos.fecha_abono, "%d/%m") AS fecha_abono, abonos.status,
         abonos.banco_receptor, bancos.nombre as banco_emisor, abonos.num_cuenta, abonos.num_ref')
         ->join('bancos', 'abonos.banco_emisor = bancos.banco_id')
         ->where('usuario', $usuario)

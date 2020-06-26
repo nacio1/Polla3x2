@@ -14,70 +14,33 @@
       <h2><span class="number">2</span> Realiza la transferencia</h2>
       <p>Realiza la transferencia al banco escogido con el monto deseado</p>
       <strong>
-          <span class="badge badge-danger">Monto mínimo: Bs.100000</span>
+          <span class="badge badge-danger">Monto mínimo: Bs.<?= $GLOBALS['coste_jugada'] ?></span>
       </strong><br>
       <i class="fas fa-angle-down fa-2x mb-2"></i>
       <h2><span class="number">3</span> Notificar transferencia</h2>
       <p>Haz click en el botón y rellena los datos de la transferencia</p>
-      <button class="btn btn-success btn-lg" data-toggle="modal" data-target="#abonarModal">ABONAR</button>
+      <button class="btn primary-btn btn-lg" data-toggle="modal" data-target="#abonarModal">ABONAR</button>
     </div><!-- Abono-pasos -->
     <div class="col-md-7 cuentas-container">
       <ul class="cuentas-bancarias">
         <li class="title">
             <h2>Cuentas bancarias</h2>
-        </li>                  
-        <li class="bank-item">
+        </li>           
+        <?php foreach($mis_bancos as $banco) { ?>
+            <li class="bank-item">
             <div class="row align-items-center">
                 <div class="col-md-5">
-                    <img class="img-fluid" src="/img/banesco-logo.png" alt="">
+                    <img class="img-fluid" src="/img/<?= $banco['img_url'] ?>" alt="">
                 </div>
                 <div class="col-md-7">
-                    <p>Cuenta ahorro</p>
-                    <p>0021 1702 1217 2030</p>
-                    <p>Teodoro Chirino</p>
-                    <p>C.I: 9924872</p>
+                    <p>Cuenta <?= $banco['tipo_cuenta'] ?></p>
+                    <p><?= $banco['numero_cuenta'] ?></p>
+                    <p><?= $banco['titular'] ?></p>
+                    <p>C.I: <?= $banco['cedula'] ?></p>
                 </div>
             </div>
-        </li>  
-        <li class="bank-item">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <img class="img-fluid" src="/img/mercantil-logo.png" alt="">
-                </div>
-                <div class="col-md-7">
-                    <p>Cuenta ahorro</p>
-                    <p>0021 1702 1217 2030</p>
-                    <p>Teodoro Chirino</p>
-                    <p>C.I: 9924872</p>
-                </div>
-            </div>
-        </li>  
-        <li class="bank-item">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <img class="img-fluid" src="/img/bnc-logo.png" alt="">
-                </div>
-                <div class="col-md-7">
-                    <p>Cuenta ahorro</p>
-                    <p>0021 1702 1217 2030</p>
-                    <p>Teodoro Chirino</p>
-                    <p>C.I: 9924872</p>
-                </div>
-            </div>
-        </li> 
-        <li class="bank-item">
-            <div class="row align-items-center">
-                <div class="col-md-5">
-                    <img class="img-fluid" src="/img/banco-venezuela.png" alt="">
-                </div>
-                <div class="col-md-7">
-                    <p>Cuenta ahorro</p>
-                    <p>0021 1702 1217 2030</p>
-                    <p>Teodoro Chirino</p>
-                    <p>C.I: 9924872</p>
-                </div>
-            </div>
-        </li> 
+        </li>
+        <?php } ?>
     </ul>
     </div><!-- //Cuentas-bancarias -->
     <div class="modal fade" id="abonarModal" tabindex="-1" role="dialog" aria-labelledby="abonarModal" style="display: none;" aria-hidden="true">
@@ -134,7 +97,7 @@
             
           </div>
           <div class="modal-footer">        
-            <button type="submit" class="btn btn-primary mx-auto">Enviar</button>
+            <button type="submit" class="btn primary-btn mx-auto">Enviar</button>
           </div>
           </form>
         </div><!-- //Modal-content -->
@@ -143,6 +106,11 @@
 </div>
 <?= $this->endSection() ?>
 <?= $this->section('js') ?>
+<script>
+$(document).ready(function(){
+    window.costeJugada = <?= $GLOBALS['coste_jugada'] ?>;
+})    
+</script>
 <script src="<?= base_url('assets/datetimepicker/jquery.datetimepicker.full.min.js') ?>"></script>
 <script src="<?=base_url('js/abonar.js') ?>"></script>
 <?= $this->endSection() ?>

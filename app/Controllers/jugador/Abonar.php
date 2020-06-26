@@ -4,13 +4,16 @@ use  App\Controllers\Basecontroller;
 
 use App\Models\AbonoModel;
 use App\Models\BancosModel;
+use App\Models\MisBancosModel;
 
 class Abonar extends BaseController
 {
 	public function index()
 	{
 		$bancosModel = new BancosModel();
+		$misBancosModel = new MisBancosModel();
 		$data['bancos'] = $bancosModel->findAll();
+		$data['mis_bancos'] = $misBancosModel->findAll();
 		$data['title'] = 'Abonar';
 		return view('jugador/abonar' , $data);
 	}   
@@ -19,9 +22,9 @@ class Abonar extends BaseController
 		if($data = $this->request->getPost()) {
 			$rules = [
 				'banco_receptor' => 'required|alpha',
-                'banco_emisor' => 'required',
+                'banco_emisor' => 'required|is_not_unique[bancos.banco_id]',
                 'num_ref' => 'required|numeric|max_length[20]',
-                'num_cuenta' => 'required|numeric',
+                'num_cuenta' => 'required|numeric|exact_length[20]',
                 'monto' => 'required|numeric',
                 'fecha' => 'required|valid_date'
 			];

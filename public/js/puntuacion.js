@@ -10,6 +10,7 @@ $(document).ready(function(){
         "columnDefs": [
             { "searchable": false, "targets": [0,2,3,4,5,6,7,8,9,10,11,12,13,14] }
         ],
+        lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "Todos"]],
         buttons:[
             {
                 extend: 'excelHtml5',

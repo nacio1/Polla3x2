@@ -43,7 +43,7 @@ $uri = service('uri');
             </button>  
             <div class="user-container">
                 <a href="<?= base_url('jugador/perfil') ?>" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
-                <p>Saldo: <span id="saldo"><?= session('usuario_saldo') ?></span></p>  
+                <p>Saldo: <span id="saldo"><?= number_format(session('usuario_saldo'), 2, ',', '.') ?></span></p>  
                 <div class="user-menu-toggle" style="cursor: pointer">
                     <i class="fas fa-sort-down"></i>
                 </div>             

@@ -49,9 +49,15 @@ $uri = service('uri');
 
                 <?php if($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>
                 <div class="form-group text-center form-button-wrapper mt-3">
-                    <button class="btn btn-lg btn-<?= (session('usuario_contador') < 2) ? 'danger' : 'success'?> my-3 " id="submitButton" type="submit">
+                    <button class="btn btn-lg <?= (session('usuario_contador') < 2) ? 'btn-danger' : 'primary-btn'?> my-3 " id="submitButton" type="submit">
                     <?= (session('usuario_contador') < 2) ? 'Jugar' : 'Gratis'?>
                     </button>
+                    <?php if(session('usuario_contador') == 0 ) { ?>
+                        <p class="text-muted">Recuerda aprovechar el 3x2 y aumenta tus chances de ganar</p>
+                    <?php }elseif(session('usuario_contador') == 1) { ?>
+                        <p class="text-muted">Sella una vez más y tu próxima jugada será <b>gratis</b></p>
+                    <?php } ?>
+                    
                 </div>   
                 <?php } ?> 
             </form>        
