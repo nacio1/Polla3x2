@@ -1,5 +1,17 @@
 $(document).ready(function(){
-    $("#login-form").validate({
+    // toggle password visibility
+    $("#password-wrapper span").on('click', function(event) {
+            if($('#password-wrapper input').attr("type") == "text"){
+          $('#password-wrapper input').attr('type', 'password');
+          $('#password-wrapper i').addClass( "fa-eye-slash" );
+          $('#password-wrapper i').removeClass( "fa-eye" );
+      }else if($('#password-wrapper input').attr("type") == "password"){
+          $('#password-wrapper input').attr('type', 'text');
+          $('#password-wrapper i').removeClass( "fa-eye-slash" );
+          $('#password-wrapper i').addClass( "fa-eye" );
+      }
+    });
+  $("#login-form").validate({
       
     rules: {
       usuario: {
@@ -20,5 +32,12 @@ $(document).ready(function(){
         
         },              
     }, 
+    errorPlacement: function(error, element) {
+      if(element.parent().hasClass('input-group')){
+        error.insertAfter( element.parent() );
+      }else{
+        error.insertAfter( element );
+      }
+    }
   })
 }); 

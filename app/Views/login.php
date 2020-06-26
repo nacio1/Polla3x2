@@ -36,25 +36,44 @@
         </div>
     </div>
     <?php endif ?>
+
+    <label for="usuario">Usuario o correo</label>
+    <div class="input-group mb-3">        
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-user"></i></span>
+        </div>
+        <input type="text" class="form-control" id="usuario" name="usuario" value="<?= set_value('usuario')?>" placeholder="Ingresa tu usuario o correo" aria-label="Usuario">
+    </div>
+
+    <label style="display: block" for="Password">Contraseña</label>
+    <div class="input-group mb-3" id="password-wrapper">
+        <div class="input-group-prepend">
+            <span class="input-group-text" id="basic-addon1"><i class="fas fa-lock"></i></span>
+        </div>
+        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña" aria-label="Contraseña">
+        <div class="input-group-append">
+            <span class="input-group-text" id="basic-addon2"><i class="fas fa-eye-slash"></i></span>
+        </div>        
+    </div>
    
 
-    <div class="form-group">
+    <!--<div class="form-group">
         <label for="usuario">Usuario</label>
         <input type="text" id="usuario" name="usuario" value="<?= set_value('usuario')?>" class="form-control" placeholder="Ingresa tu usuario o correo">
     </div>
     <div class="form-group">
         <label for="Password">Contraseña</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">  
-    </div> 
+    </div> --> 
             
-    <button class="btn btn-lg btn-block mb-2" id="form-submit" type="submit">Iniciar Sesión</button>   
+    <button class="btn btn-lg btn-block my-4" id="form-submit" type="submit">Iniciar Sesión</button>   
 
     <div class="login-links ">
         <p>¿No tienes cuenta aún? <a href="<?= base_url('registro') ?>">Regístrate</a></p>  
         <div class="forget-password">
             <a href="#" >¿Olvidaste tu contraseña?</a>
         </div>                     
-    </div>              
+    </div>             
 </form>
 <script src="js/login.js"></script>
 </body>

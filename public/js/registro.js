@@ -1,5 +1,4 @@
-$(document).ready(function() { 
-    
+$(document).ready(function() {     
     $("#registro-form").validate({
         rules: {
             usuario: {
@@ -64,6 +63,6 @@ $(document).ready(function() {
                 remote: $.validator.format("El correo {0} ya esta siendo utilizado.")
             }
             
-        }
+        }        
     });   
 });

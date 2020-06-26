@@ -36,17 +36,17 @@
     <div class="form-group">
         <label for="email">Email</label>
         <input type="text" id="email" name="email" class="form-control" placeholder="Ingresa tu correo">
-    </div>
-    <div class="form-group">
+    </div>    
+   <div class="form-group">
         <label for="Password">Contraseña</label>
         <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">  
     </div>
     <div class="form-group">
         <label for="confirm_password">Repite tu contraseña</label>
         <input type="password" id="confirm_password" name="confirm_password" class="form-control" placeholder="Repite tu contraseña">
-    </div>    
+    </div>
             
-    <button class="btn btn-lg btn-block mb-2" type="submit">Crear Cuenta</button>   
+    <button class="btn btn-lg btn-block mb-3" type="submit">Crear Cuenta</button>   
 
     <div class="login-links ">
         <p>¿Ya tienes una cuenta? <a href="<?= base_url('login') ?>">Iniciar sesión</a></p>                                
