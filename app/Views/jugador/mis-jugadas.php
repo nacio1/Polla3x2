@@ -166,6 +166,7 @@ $uri = service('uri');
 <script>
 window.fecha_cierre = '<?= $GLOBALS['fecha_cierre'] ?>';
 window.cierre = '<?= $GLOBALS['cierre'] ?>';
+window.status = '<?= $GLOBALS['status'] ?>';
 </script>
 <script src="<?= base_url('js/premio.js') ?>"></script>
 <?= $this->endSection() ?>

@@ -21,8 +21,9 @@ class Usuario extends BaseController
 
             if(! $this->validate($rules)) {
                 $data['error'] = 'Usuario o contraseña incorrectos';                           
-            }else{
+            }else{                
                 $this->setUserSession($this->request->getVar('usuario'));
+                $this->updateLastLogin(session('usuario_id'));
                 if(session('usuario_role') == 'admin') {
                     return redirect()->to('admin');
                 }
@@ -30,6 +31,15 @@ class Usuario extends BaseController
             }
         }
         return view('login', $data);
+    }
+
+    protected function updateLastLogin(int $usuario_id) {
+        $data = [
+            'usuario_id' => $usuario_id,
+            'last_login'=> new Time('now', 'America/Caracas', 'en_US')
+        ];        
+        $usuarioModel = new UsuarioModel();
+        $usuarioModel->save($data);
     }
 
     public function setUserSession(string $usuario) {
@@ -71,7 +81,8 @@ class Usuario extends BaseController
                 $newUser = [
                     'usuario' => $this->request->getVar('usuario'),
                     'usuario_email' => $this->request->getVar('email'),
-                    'password' => $this->request->getVar('password')
+                    'password' => $this->request->getVar('password'),
+                    'fecha_creado' => new Time('now', 'America/Caracas', 'en_US')
                 ];
 
                 $usuarioModel->save($newUser);

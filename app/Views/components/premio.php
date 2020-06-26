@@ -10,11 +10,12 @@
         </li>
     </ul>
     <div class="card-footer text-center">
-    <?php if($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>
+    <?php if(isset($status) && $status == 0) { ?>
+        Cerrado
+    <?php }elseif($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>    
         <span>Cierre: </span><span id="cierre"></span>
     <?php }else{ ?>
         Cerrado
-    <?php } ?>
-        
+    <?php } ?>        
     </div>
 </div>

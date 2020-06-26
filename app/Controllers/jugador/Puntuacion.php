@@ -10,6 +10,7 @@ class Puntuacion extends BaseController
 {
 	public function index($fecha_jornada = null)
 	{
+		helper('funciones');
 		$fecha_jornada = ($fecha_jornada) ? $fecha_jornada : $GLOBALS['fecha_jornada'];
         $jugadaModel = new JugadaModel();
 		$jornadaModel = new JornadaModel();  

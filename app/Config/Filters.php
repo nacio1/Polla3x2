@@ -12,6 +12,8 @@ class Filters extends BaseConfig
 		'honeypot' => \CodeIgniter\Filters\Honeypot::class,
 		'isLoggedIn'  => \App\Filters\isLoggedIn::class,
 		'isAdmin'  => \App\Filters\isAdmin::class,
+		'protectUrl'  => \App\Filters\protectUrl::class,
+		'actualizarSaldo'  => \App\Filters\actualizarsaldo::class,
 	];
 
 	// Always applied before every request
@@ -35,6 +37,8 @@ class Filters extends BaseConfig
 	// that they should run on, like:
 	//    'isLoggedIn' => ['before' => ['account/*', 'profiles/*']],
 	public $filters = [
-		'isLoggedIn' => ['before' => ['usuario*', 'login', 'registro']]
+		'isLoggedIn' => ['before' => ['usuario*', 'login', 'registro']],
+		'protectUrl' => ['before' => ['usuario*', 'home*', 'registro']],
+		'actualizarSaldo' => ['before' => ['jugador*', 'admin*']],
 	];
 }

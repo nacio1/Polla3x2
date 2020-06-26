@@ -27,7 +27,8 @@ class Jugar extends BaseController
 	}  
 
 	public function misJugadas()	{		
-		
+		helper('funciones');
+
 		$retiradosModel = new RetiradosModel();
 		$premioModel = new PremioModel();
 		$jugadaModel = new JugadaModel();

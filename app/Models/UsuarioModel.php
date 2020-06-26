@@ -16,6 +16,7 @@ class UsuarioModel extends Model
         'password',        
         'usuario_saldo',
         'contador',
+        'fecha_creado',
         'last_login'
     ];
 
