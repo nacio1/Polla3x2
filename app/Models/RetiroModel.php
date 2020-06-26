@@ -26,6 +26,19 @@ class RetiroModel extends Model {
         return $query;
     }
 
+    public function getByUser(string $usuario) {
+        $builder = $this->db->table('retiros');
+        $query = $builder
+        ->select('retiros.retiro_id, retiros.usuario, retiros.monto,DATE_FORMAT(retiros.fecha_retiro, "%M %d") AS fecha_retiro, retiros.status,
+        bancos.nombre as banco_nombre, cuentasbancarias.numero_cuenta')
+        ->join('cuentasbancarias', 'retiros.cuenta_id = cuentasbancarias.cuenta_id')
+        ->join('bancos', 'cuentasbancarias.banco_id = bancos.banco_id')
+        ->where('retiros.usuario', $usuario)
+        ->orderBy("FIELD(retiros.status, 'pendiente') DESC, fecha_retiro DESC ")
+        ->get()->getResultArray();
+        return $query;
+    }
+
     public function getRetiroById(int $retiro_id) {
         $builder = $this->db->table('retiros');
         $query = $builder

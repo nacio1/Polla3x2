@@ -20,7 +20,7 @@ class Abonos extends BaseController
 
 	public function getAbono(int $abono_id) {
 		$abonoModel = new AbonoModel();	
-		$abono = $abonoModel->where('abono_id', $abono_id)->first();
+		$abono = $abonoModel->getAbonoById($abono_id);
 		echo json_encode($abono);				
 	}
 

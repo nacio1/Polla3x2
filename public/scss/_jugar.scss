@@ -1,4 +1,4 @@
-.jugar-container{
+.jugar-container, .transacciones-nav{
     .nav-link{
         color: #333;
         &:hover{
@@ -9,6 +9,8 @@
         @include set-background($primary-color);    
     }      
 }    
+
+    
 
 
 .jugar-section {

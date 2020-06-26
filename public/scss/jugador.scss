@@ -1,7 +1,6 @@
 @import 'variables';
 @import 'responsive';
 @import 'resets';
-@import 'tables';
 
 body{
     font-family: Roboto, san-serif;
@@ -145,7 +144,7 @@ body{
 footer {
     grid-area: footer;    
 }
-
+@import 'tables';
 @import 'sidebar';
 @import 'jugar';
 @import 'premio';

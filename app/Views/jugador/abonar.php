@@ -105,7 +105,9 @@
                     <label for="bancor_emisor">Banco emisor</label>
                     <select id="banco_emisor" name="banco_emisor" class="form-control">
                         <option value="" selected="">Seleccione</option>
-                        <option value="banesco">Banesco</option>
+                        <?php foreach($bancos as $banco) { ?>
+                            <option value="<?= $banco['banco_id']?>"><?= $banco['nombre']?></option>   
+                        <?php } ?>
                     </select>
                 </div>     
                 <div class="form-group col-6">
