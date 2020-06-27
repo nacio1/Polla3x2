@@ -135,8 +135,9 @@ body {
   height: 50px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 0 1rem;
+  position: relative;
   background-color: #16a085;
   color: #fff;
 }
@@ -153,10 +154,11 @@ body {
 .top-bar .hamburguer {
   background-color: #34495e;
   color: #fff;
+  position: absolute;
   border-radius: 0;
   line-height: inherit;
-  margin-right: .5rem;
   height: 100%;
+  left: 0;
 }
 
 .main-content {
@@ -282,6 +284,11 @@ footer {
   padding: .5rem;
   font-size: 1rem;
   text-align: center;
+}
+
+.side-bar .user-container img {
+  width: 150px;
+  margin-right: .75rem;
 }
 
 .side-bar .user-container p {
@@ -677,16 +684,6 @@ footer {
   .abono-pasos .badge {
     font-size: 90%;
   }
-}
-
-.abono-pasos .btn-success {
-  background-color: #16a085;
-  color: #fff;
-}
-
-.abono-pasos .btn-success:hover {
-  background-color: #138a72;
-  color: #fff;
 }
 
 .cuentas-bancarias {

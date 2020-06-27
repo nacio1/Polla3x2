@@ -13,7 +13,7 @@
 <header>
     <nav class="navbar">  
     <div class="container d-flex justify-content-end">
-        <a class="navbar-brand mr-auto" href="#">Polla3x2</a>
+        <a class="navbar-brand mr-auto" href="/">Polla3x2</a>
         <a class="btn mr-1" href="<?= base_url('login') ?>">Login</a>
         <a class="btn btn-danger btn-sm" href="<?= base_url('registro') ?>">Crear Cuenta</a>    
     </div>   

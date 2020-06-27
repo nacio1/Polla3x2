@@ -23,7 +23,11 @@ $(document).ready(function(){
 
     //Almacenar los hijos de tr(td) en un array
     var data = $tr.children('td').map(function(){
+      if($(this).text().includes('(')) {
+        return $(this).text().substr(0, $(this).text().indexOf('('));
+      }else{
         return $(this).text();
+      }           
     }).get();
 
     var jugada_id = $('.datatables').DataTable().row($tr).data()[1];

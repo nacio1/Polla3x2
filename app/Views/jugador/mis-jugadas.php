@@ -83,7 +83,8 @@ $uri = service('uri');
                             <?php if($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>
                             <td>
                             <?php if($mi_jugada['jornada_id'] == $GLOBALS['jornada_id'] ) { ?>
-                            <button type="button" class="btn btn-primary edit-button" data-toggle="modal" data-target="#editarModal">Editar
+                            <button type="button" class="btn btn-primary edit-button" data-toggle="modal" data-target="#editarModal">
+                            <i class="fas fa-edit"></i>
                             </button>
                             <?php } ?>
                             </td>   

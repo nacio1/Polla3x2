@@ -7,8 +7,8 @@
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/swa2/sweetalert2.min.css')?>">
-    <link rel="stylesheet" href="<?= base_url('css/login.css') ?>">
-
+    <link rel="stylesheet" href="<?= base_url('css/login.css') ?>">   
+     
     <script src="<?= base_url('assets/jquery/jquery.min.js') ?>"></script>     
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('assets/datetimepicker/jquery.datetimepicker.full.min.js') ?>"></script>
@@ -26,7 +26,7 @@
     </script>
 </div>
 <form class="form-signin" id="login-form" method="POST" action="login">        
-    <h1 class="text-center mb-5">Polla3x2</h1>
+    <a href="/" class="img-wrapper"><img class="img-fluid mx-auto" src="<?= base_url('img/polla3x2-logo.png') ?>"></a>
     <h1 class="h3 mb-3 font-weight-normal">Ingresa tu cuenta</h1>
     
     <?php if(isset($error)): ?>

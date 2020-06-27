@@ -15,6 +15,18 @@ body {
   color: #b33939;
 }
 
+.img-wrapper {
+  margin-bottom: 1.5rem;
+  display: flex;
+  padding-right: 1.5rem;
+}
+
+@media (max-width: 575px) {
+  .img-wrapper img {
+    max-width: 250px;
+  }
+}
+
 .form-signin {
   width: 100%;
   max-width: 450px;

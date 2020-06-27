@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="<?= base_url('assets/bootstrap/css/bootstrap.min.css') ?>">
     <link rel="stylesheet" href="<?= base_url('assets/swa2/sweetalert2.min.css')?>">
     <link rel="stylesheet" href="<?= base_url('css/login.css') ?>">
-
+    
     <script src="<?= base_url('assets/jquery/jquery.min.js') ?>"></script>     
     <script src="<?= base_url('assets/bootstrap/js/bootstrap.bundle.min.js') ?>"></script>
     <script src="<?= base_url('assets/datetimepicker/jquery.datetimepicker.full.min.js') ?>"></script>
@@ -27,7 +27,7 @@
     </script>
 </div>
 <form class="form-signin" id="registro-form" action="<?= base_url('registro') ?>" method="POST">
-    <h1 class="text-center mb-5">Polla3x2</h1>
+    <a class="img-wrapper"><img class="img-fluid mx-auto" src="<?= base_url('img/polla3x2-logo.png') ?>"></a>
     <h1 class="h3 mb-3 font-weight-normal">Regístrate ahora</h1>    
     <div class="form-group">
         <label for="usuario">Usuario</label>

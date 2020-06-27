@@ -108,8 +108,9 @@ body{
     height: 50px;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     padding: 0 1rem;
+    position: relative;    
     @include set-background($primary-color); 
     a {
         color: $secondary-color;               
@@ -122,10 +123,11 @@ body{
 
     .hamburguer {
         @include set-background($asphalt);
+        position: absolute;
         border-radius: 0;
-        line-height: inherit;
-        margin-right: .5rem;
+        line-height: inherit;        
         height: 100%;
+        left: 0;
     }
 }
 

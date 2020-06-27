@@ -34,7 +34,7 @@ $uri = service('uri');
             <button class="navbar-toggler hamburguer">
               <i class="fas fa-bars"></i>
             </button>        
-            <a class="navbar-brand mr-auto" href="#">Polla3x2</a>
+            <!--<a class="navbar-brand mr-auto" href="#"> <img src="<?= base_url('img/polla3x2-logo.png') ?>"> </a>-->
             <a href="<?= base_url('jugador/salir') ?>" data-toggle="tooltip" data-placement="bottom" title="Cerrar sesión"><i class="fas fa-sign-out-alt"></i></a>           
         </section>
         <section class="side-bar shadow">
@@ -42,6 +42,9 @@ $uri = service('uri');
               <i class="fas fa-times"></i>
             </button>  
             <div class="user-container">
+                <div>
+                <img class="img-fluid" src="<?= base_url('img/polla3x2-logo.png') ?>">
+                </div> 
                 <a href="<?= base_url('jugador/perfil') ?>" class="user-name"><span><i class="far fa-user"></i></span> <?= session('usuario') ?></a href="#">
                 <p>Saldo: <span id="saldo"><?= number_format(session('usuario_saldo'), 2, ',', '.') ?></span></p>  
                 <div class="user-menu-toggle" style="cursor: pointer">

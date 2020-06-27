@@ -1,4 +1,5 @@
 @import 'variables';
+@import 'responsive';
 
 html,
 body {
@@ -17,6 +18,17 @@ body {
 
 .error {
   color: $red-color;
+}
+
+.img-wrapper{
+  margin-bottom: 1.5rem;
+  display: flex;
+  padding-right: 1.5rem;
+  @include mobile {
+    img {
+      max-width: 250px;
+    }
+  }
 }
 
 .form-signin {

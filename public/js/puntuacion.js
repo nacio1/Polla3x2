@@ -13,13 +13,17 @@ $(document).ready(function(){
         lengthMenu: [[20, 50, 100, -1], [20, 50, 100, "Todos"]],
         buttons:[
             {
-                extend: 'excelHtml5',
+                extend: 'excelHtml5',               
                 text:'<i class="fas fa-file-excel"></i>',
                 titleAttr: 'Exportar a Excel',
                 className:'btn btn-success'
             },
             {
                 extend: 'pdfHtml5',
+                customize: function(doc) {
+                    doc.defaultStyle.alignment = 'center',                    
+                    doc.content[1].margin = [ 40, 0, 50, 0 ] //left, top, right, bottom                        
+                },                  
                 text:'<i class="fas fa-file-pdf"></i>',
                 titleAttr: 'Exportar a PDF',
                 className:'btn btn-danger'
