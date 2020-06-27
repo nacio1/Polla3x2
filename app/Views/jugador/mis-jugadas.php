@@ -92,7 +92,7 @@ $uri = service('uri');
                             </tr>
                         <?php } ?>
                     <?php }else{ ?>
-                            <h2 class=" text-center mt-4 mb-5">Aún no has registrado jugadas</h2>
+                            <h3 style="font-weight: 400" class=" text-center mt-4 mb-5">Aún no has registrado jugadas</h3>
                     <?php }?> 
                     </tbody>
                 </table>         
@@ -152,7 +152,7 @@ $uri = service('uri');
 
         <div class="modal-footer">        
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
-          <button type="submit" class="btn btn-primary guardar-button">Guardar</button>
+          <button type="submit" class="btn primary-btn guardar-button">Guardar</button>
         </div>
       </form>  
     </div>

@@ -63,7 +63,7 @@
         </div>
 
         <div class="modal-footer">            
-          <button type="submit" class="btn btn-primary mx-auto enviar-button">Enviar</button>
+          <button type="submit" class="btn primary-btn mx-auto enviar-button">Enviar</button>
         </div>
       </form>  
     </div>

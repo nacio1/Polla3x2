@@ -36,8 +36,9 @@ class Jugar extends BaseController
 		$data['title'] = 'Mis jugadas';			
 		$data['premio'] = $premioModel->where('jornada_id',$GLOBALS['jornada_id'])->first();
 		$data['mis_jugadas'] = $jugadaModel->getJugadasByUser(session('usuario'));	
-		$data['mis_jugadas'] = ordernarJugadas($data['mis_jugadas']);		
-		
+		if($data['mis_jugadas']){
+			$data['mis_jugadas'] = ordernarJugadas($data['mis_jugadas']);
+		}		
 		return view('jugador/mis-jugadas', $data);		
 	} 
 	

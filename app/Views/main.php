@@ -10,7 +10,7 @@
     <title>Polla3x2</title>
 </head>
 <body>
-<header>
+<header class="main-header">
     <nav class="navbar">  
     <div class="container d-flex justify-content-end">
         <a class="navbar-brand mr-auto" href="/">Polla3x2</a>
@@ -60,7 +60,7 @@
 <footer>
 <div class="container">
     <div class="row">
-    <a href="#" class="col-sm-4">Reglamento</a href="#">
+    <a href="<?= base_url('reglamento') ?>" class="col-sm-4">Reglamento</a href="#">
     <a href="#" class="col-sm-4">Términos y servicios</a href="#">
     <a href="#" class="col-sm-4">Siguenos en <i class="fab fa-twitter"></i></a href="#">
     </div>      

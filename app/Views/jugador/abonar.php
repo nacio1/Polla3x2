@@ -59,7 +59,9 @@
                 <label for="bancor_receptor">Banco a donde realizó la transferencia</label>
                 <select id="banco_receptor" name="banco_receptor" class="form-control">
                     <option value="" selected="">Seleccione</option>
-                    <option value="banesco">Banesco</option>
+                    <?php foreach($mis_bancos as $banco) { ?>
+                        <option value="<?= $banco['nombre'] ?>"><?= $banco['nombre'] ?></option>
+                    <?php } ?>
                 </select>
             </div>
     

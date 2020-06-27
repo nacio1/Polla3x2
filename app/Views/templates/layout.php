@@ -6,7 +6,7 @@ $uri = service('uri');
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Polla3x2 | <?= $title ?></title>
+    <title><?= $title ?> | Polla3x2</title>
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap" rel="stylesheet">
     <?= $this->renderSection('css') ?>
     <link rel="stylesheet" href="<?= base_url('assets/fontawesome/css/all.min.css') ?>">
@@ -72,8 +72,8 @@ $uri = service('uri');
         <footer>
         <div class="container">
             <div class="row">
-            <a href="#" class="col-sm-4">Reglamento</a href="#">
-            <a href="#" class="col-sm-4">Términos y servicios</a href="#">
+            <a href="<?= base_url('reglamento') ?>" class="col-sm-4">Reglamento</a href="#">
+            <a href="<?= base_url('terminos') ?>" class="col-sm-4">Términos y servicios</a href="#">
             <a href="#" class="col-sm-4">Siguenos en <i class="fab fa-twitter"></i></a href="#">
             </div>      
             <p>Polla3x2 &reg Todos los derechos reservados</p>

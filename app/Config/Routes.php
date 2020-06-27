@@ -79,6 +79,8 @@ $routes->get('prueba/(:any)', 'jugador/Jugar::test/$1');
 $routes->add('registro', 'Usuario::registro');
 $routes->add('login', 'Usuario::login');
 $routes->get('salir', 'Usuario::cerrarSesion');
+$routes->get('reglamento', 'Home::reglamento');
+$routes->get('terminos', 'Home::terminos');
 $routes->get('/', 'Home::index', ['filter' => 'isLoggedIn']);
 
 /**
