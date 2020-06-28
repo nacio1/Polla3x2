@@ -18,7 +18,17 @@ $(document).ready(function() {
                 required: true,
                 digits: true,
                 minlength: 7,
-                maxlength: 8
+                maxlength: 8,
+                remote: {
+                    url: urlBase + 'jugador/cedulaExists',
+                    type: 'post',
+                    dataType: 'json',
+                    data: {
+                        cedula: function() {
+                          return $( "#cedula" ).val();
+                        }
+                    }                                           
+                }
             }, 
             password: {                
                 minlength: 8                
@@ -26,6 +36,11 @@ $(document).ready(function() {
             checkbox: {
                 required: true
             },                 
+        },
+        messages:{
+            cedula: {
+                remote: 'Ya existe un usuario con esta cédula'
+            }
         }
     });   
 });

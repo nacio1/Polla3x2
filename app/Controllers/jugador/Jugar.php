@@ -18,11 +18,12 @@ class Jugar extends BaseController
 		$jornadaModel = new JornadaModel();
 		$retiradosModel = new RetiradosModel();
 		$premioModel = new PremioModel();
+		$jugadaModel = new JugadaModel();
 		$data['title'] = 'Jugar';
 		$data['cantidad_ejemplares'] = $jornadaModel->getJornadaEjemplares();
 		$data['ejemplares_retirados'] = $retiradosModel->getJornadaRetirados();	
 		$data['premio'] = $premioModel->where('jornada_id',$GLOBALS['jornada_id'])->first();	
-		
+		$data['gratis'] = $jugadaModel->contarGratis($GLOBALS['jornada_id']);
 		return view('jugador/jugar', $data);
 	}  
 
@@ -35,7 +36,8 @@ class Jugar extends BaseController
 				
 		$data['title'] = 'Mis jugadas';			
 		$data['premio'] = $premioModel->where('jornada_id',$GLOBALS['jornada_id'])->first();
-		$data['mis_jugadas'] = $jugadaModel->getJugadasByUser(session('usuario'));	
+		$data['mis_jugadas'] = $jugadaModel->getJugadasByUser(session('usuario'));
+		$data['gratis'] = $jugadaModel->contarGratis($GLOBALS['jornada_id']);	
 		if($data['mis_jugadas']){
 			$data['mis_jugadas'] = ordernarJugadas($data['mis_jugadas']);
 		}		

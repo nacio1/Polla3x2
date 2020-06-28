@@ -31,6 +31,7 @@
 <script>
 $(document).ready(function(){
     window.costeJugada = <?= $GLOBALS['coste_jugada'] ?>;
+    window.saldo = <?= session('usuario_saldo') ?>;
 })    
 </script>
 

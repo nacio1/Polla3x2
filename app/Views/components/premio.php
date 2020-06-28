@@ -8,6 +8,9 @@
         <li class="list-group-item d-flex justify-content-between" style="font-size: 14px">
             <span>Jugadas: <br> <?= $premio['total_jugadas'] ?></span> <span>Coste Bs: <br> <?= number_format($GLOBALS['coste_jugada'],'2',',','.') ?></span>
         </li>
+        <?php if(session('usuario_role') == 'admin') { ?>
+        <li style="font-size: 14px" class="list-group-item">Gratis: <br> <?= $gratis ?></li>
+        <?php } ?>
     </ul>
     <div class="card-footer text-center">
     <?php if(isset($status) && $status == 0) { ?>

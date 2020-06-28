@@ -18,7 +18,8 @@ class JugadaModel extends Model {
     public function getAllByJornadaId(int $jornada_id) {
         $builder = $this->db->table('jugadas');
         $query = $builder
-        ->select('jugada_id, jornada_id, usuario, DATE_FORMAT(fecha_jugada, "%H:%i") AS fecha_jugada, 1va_ejemplar, 2va_ejemplar, 3va_ejemplar, 4va_ejemplar, 5va_ejemplar, 6va_ejemplar,
+        ->select('jugada_id, jornada_id, usuario, DATE_FORMAT(fecha_jugada, "%H:%i") AS fecha_jugada,    
+        1va_ejemplar, 2va_ejemplar, 3va_ejemplar, 4va_ejemplar, 5va_ejemplar, 6va_ejemplar,
         1va_pts, 2va_pts, 3va_pts, 4va_pts, 5va_pts, 6va_pts, total_pts')
         ->where('jornada_id', $jornada_id)
         ->orderBy('total_pts DESC, fecha_jugada DESC')
@@ -44,4 +45,12 @@ class JugadaModel extends Model {
         ->set($data)->update();
     }
      
+    public function contarGratis(int $jornada_id) {
+        $builder = $this->db->table('jugadas');
+        $query = $builder 
+        ->where('jornada_id', $jornada_id)       
+        ->where('esGratis', 1) 
+        ->countAllResults();      
+        return $query;
+    }
 }

@@ -9,6 +9,7 @@ form {
 <?= $this->endSection() ?> 
 
 <?= $this->section('content') ?>
+<h1 style="font-weight: 400" class="mb-4">Mi Perfil</h1>
 <form id="perfil-form" method="POST" action="<?= base_url('jugador/perfil') ?>">
     <div class="form-group row">
         <label for="email" class="col-sm-2 col-form-label">Email</label>
@@ -47,7 +48,7 @@ form {
     </div>
     <?php } ?>
     <div class="text-center mt-3">
-        <button type="submit" class="btn btn-primary  ">Guardar</button>
+        <button type="submit" class="btn primary-btn">Guardar</button>
     </div>    
 </form>
 <?= $this->endSection() ?> 
@@ -58,6 +59,9 @@ form {
 $(document).ready(function(){
     $('input[type=text]').removeClass('form-control');
     $('input[type=text]').addClass('form-control-plaintext');
+    $('input[type=text]').attr('readonly', true);
+    $('input[name=cedula]').attr('name', '');
+    $('input[type=password]').attr('required', true);
 });
 </script>  
 <?php } ?>

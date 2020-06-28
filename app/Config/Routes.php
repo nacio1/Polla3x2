@@ -35,7 +35,10 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->get('jugar', 'jugador/Jugar::index');
 	$routes->get('mis-jugadas', 'jugador/Jugar::misJugadas');
 	$routes->post('crear-jugada', 'jugador/Jugar::crearJugada');
-	$routes->post('ediar-jugada', 'jugador/Jugar::editarJugada');
+	$routes->post('editar-jugada', 'jugador/Jugar::editarJugada');
+
+	$routes->post('cedulaExists', 'Usuario::cedulaExists');
+
 
 	$routes->get('abonar', 'jugador/Abonar::index');
 	$routes->post('crear-abono', 'jugador/Abonar::insertarAbono');
@@ -47,8 +50,7 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->post('agregar-retiro', 'jugador/Retirar::crearRetiro');
 
 	$routes->add('perfil', 'Usuario::perfil');
-	$routes->add('mis-cuentas', 'jugador/Bancos::misCuentas');
-	$routes->add('mis-cuentas', 'jugador/Bancos::misCuentas');
+	$routes->add('mis-cuentas', 'jugador/Bancos::misCuentas');	
 	$routes->post('agregar-cuenta', 'jugador/Bancos::registrarCuenta');
 	$routes->post('editar-cuenta', 'jugador/Bancos::editarCuenta');
 	$routes->get('mis-transacciones', 'jugador/Transacciones::index');
@@ -74,8 +76,6 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 	$routes->get('Usuarios', 'admin/Usuarios::index');
 });
 
-
-$routes->get('prueba/(:any)', 'jugador/Jugar::test/$1');
 $routes->add('registro', 'Usuario::registro');
 $routes->add('login', 'Usuario::login');
 $routes->get('salir', 'Usuario::cerrarSesion');

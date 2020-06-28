@@ -8,7 +8,7 @@
 
 <?= $this->section('content') ?>
 <div class="puntuacion-premio-container">
-    <?= view_cell('\App\Libraries\Component::premio', ['premio' => $premio, 'status' => $status]) ?>
+    <?= view_cell('\App\Libraries\Component::premio', ['premio' => $premio, 'status' => $status, 'gratis' => $gratis]) ?>
 </div>
 <div class="mt-2 mb-1" style="max-width: 130px">        
     <select class="form-control" id="select-jornada"> 

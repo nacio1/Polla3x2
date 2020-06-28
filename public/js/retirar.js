@@ -1,4 +1,4 @@
-$(document).ready(function(){    
+$(document).ready(function(){        
     jQuery.validator.addMethod("greaterThanOrEqual", function(value, element, param) {
         return this.optional(element) || value >= param;
     }, $.validator.format("El monto mínimo es de Bs.{0}"));
@@ -15,7 +15,7 @@ $(document).ready(function(){
                 required: true,
                 digits: true,
                 greaterThanOrEqual: costeJugada,
-                lessThanOrEqual: $('#saldo').text()
+                lessThanOrEqual: saldo
             }
         }            
     })     

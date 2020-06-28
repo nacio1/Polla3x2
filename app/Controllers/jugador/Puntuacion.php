@@ -25,6 +25,7 @@ class Puntuacion extends BaseController
 		                               
         $data['premio'] = $premioModel->getPremioByJornadaId($jornada['jornada_id']); 
 		$data['fecha_jornada'] = $jornada['fecha_jornada'];  
+		$data['gratis'] = $jugadaModel->contarGratis($jornada['jornada_id']);
 		$data['status'] = $jornada['status'];
 		return view('jugador/puntuacion', $data);
     }   

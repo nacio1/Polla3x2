@@ -99,7 +99,7 @@ $uri = service('uri');
             </div>                        
         </div>    
         <div class="premio-container">
-           <?= view_cell('\App\Libraries\Component::premio', $premio) ?>
+           <?= view_cell('\App\Libraries\Component::premio', ['premio' => $premio, 'gratis' => $gratis]) ?>
         </div>               
     </div><!-- //Jugar-section --> 
 </div><!-- //Jugar container  -->

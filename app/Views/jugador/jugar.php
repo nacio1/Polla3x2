@@ -63,7 +63,7 @@ $uri = service('uri');
             </form>        
         </div>    
         <div class="premio-container">
-           <?= view_cell('\App\Libraries\Component::premio', $premio) ?>
+           <?= view_cell('\App\Libraries\Component::premio', ['premio' => $premio, 'gratis' => $gratis]) ?>
         </div>               
     </div><!-- //Jugar-section -->        
     

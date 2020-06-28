@@ -129,7 +129,7 @@ class Usuario extends BaseController
     
                     $message = setSwaMessage('Perfil actualizado','Tu perfil fue actualizado');
                     
-                    return redirect()->to('jugar')->with('message', $message);
+                    return redirect()->to('perfil')->with('message', $message);
                 }
             }else{//if exist cedula 
                 $rules['password'] = 'min_length[8]';
@@ -143,7 +143,7 @@ class Usuario extends BaseController
     
                     $message = setSwaMessage('Contraseña actualizada','Tu contraseña ha sido cambiada');
                     
-                    return redirect()->to('jugador')->with('message', $message);
+                    return redirect()->to('perfil')->with('message', $message);
                 }
             }//else           
         }//if post data
@@ -157,6 +157,18 @@ class Usuario extends BaseController
        
             $usuarioModel = new UsuarioModel();           
             $return = ($usuarioModel->getUserByEmail($email)) ? false : true;
+            
+            echo json_encode($return);
+        }            
+    }
+
+    public function cedulaExists() {
+        if ($this->request->isAJAX()) {
+            
+            $cedula = $this->request->getPost('cedula');
+       
+            $usuarioModel = new UsuarioModel();           
+            $return = ($usuarioModel->where('cedula', $cedula)->first()) ? false : true;
             
             echo json_encode($return);
         }            
