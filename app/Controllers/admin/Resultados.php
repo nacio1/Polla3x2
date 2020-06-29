@@ -4,18 +4,22 @@ use  App\Controllers\Basecontroller;
 
 use App\Models\JugadaModel;
 use App\Models\RetiradosModel;
+use App\Models\ResultadosModel;
 
 class Resultados extends BaseController
 {
 	public function index()
 	{
+        $resultadosModel = new ResultadosModel();
+        $data['resultados'] = $resultadosModel->getAll();
         $data['title'] = 'Resultados';
         return view('admin/resultados', $data);
     }
 
     public function actualizarPuntos() {
+        helper('funciones');
         $data = $this->request->getPost();
-
+        $this->actualizarResultados($data['valida_resultados'], $data['1ro'], $data['2do'], $data['3ro']);
         $valida = $data['valida'];//Ej: 1va_ejemplar, 2va_ejemplar...
         $valida_pts = $data['valida_pts'];//Ej: 1va_pts, 2va_pts...
         $num_ejemplares = $data['num_ejemplares'];//Ej: 1va_ejemplares
@@ -54,7 +58,17 @@ class Resultados extends BaseController
 
             $jugadaModel->update($jugada['jugada_id'], $newData);
         }
-
-        return redirect()->back()->with('message', "Swal.fire('Listo','Puntuación actualizada','success')");
+        
+        return redirect()->to('resultados')->with('message', "Swal.fire('Listo','Puntuación actualizada','success')");
     }   
+
+    protected function actualizarResultados(string $valida, int $primero, int $segundo, int $tercero) {
+        $resultadosModel = new ResultadosModel();
+        $resultados = $resultadosModel->where('jornada_id', $GLOBALS['jornada_id'])->first();
+        $data = [ 
+            'resultados_id' => $resultados['resultados_id'],
+            $valida => $primero.' - '. $segundo. ' - '. $tercero
+        ];
+        $resultadosModel->save($data);
+    }
 }    

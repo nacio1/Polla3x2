@@ -5,6 +5,7 @@ use  App\Controllers\Basecontroller;
 use App\Models\JornadaModel;
 use App\Models\PremioModel;
 use App\Models\RetiradosModel;
+use App\Models\ResultadosModel;
 
 class Jornada extends BaseController
 {
@@ -27,6 +28,7 @@ class Jornada extends BaseController
 			$jornada_id = $db->insertID();//ID de la jornada creada                    
 			$this->createPremio($jornada_id);//Crear premio con el id de la jornada
 			$this->createRetirados($jornada_id);//Crear retirados con el id de la jornada
+			$this->createResultados($jornada_id);//Crear resultados con el id de la jornada
 
 			$message = setSwaMessage('Jornada creada', 'Nueva jornada creada con éxito');
 			return redirect()->to('jornadas')->with('message', $message);
@@ -51,6 +53,17 @@ class Jornada extends BaseController
         ];
         $retiradosModel->save($data);
 	}	
+
+	protected function createResultados($jornada_id) {
+		$resultadosModel = new ResultadosModel();
+        $jornadaModel = new JornadaModel();        
+        $jornada = $jornadaModel->where('jornada_id', $jornada_id)->first();        
+        $data = [
+            'jornada_id' => $jornada_id,
+            'fecha_jornada' => $jornada['fecha_jornada']
+        ];
+        $resultadosModel->save($data);
+	}
 	
     public function cerrarJornada($jornada_id) {
         $jornadaModel = new JornadaModel();

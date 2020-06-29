@@ -9,7 +9,7 @@ class Retirados extends BaseController
 	public function index()	{
 		$data['title'] = 'Retirados'; 
 		$retiradosModel = new RetiradosModel();
-		$data['retirados'] = $retiradosModel->orderBy('fecha_jornada', 'DESC')->findAll();
+		$data['retirados'] = $retiradosModel->getAll();
 		return view('admin/retirados', $data);
 	}   
 	
@@ -25,6 +25,14 @@ class Retirados extends BaseController
 		$retiradosModel->update($retirados['retirados_id'], $data);
 		$message = setSwaMessage('Listo','Ejemplar retirado');
 		return redirect()->to('retirados')->with('message', $message);
+	}
+
+	public function actualizarRetirados() {
+		$retiradosModel = new RetiradosModel();
+		$data = $this->request->getPost();
+		$retiradosModel->save($data);
+		$message = setSwaMessage('Listo','Retirados actualizado');
+		return redirect()->to('retirados')->with('message', $message); 
 	}
 
 	protected function ordernarRetirados(int $nuevoRetirado, array $retirados, string $valida_retirados) {	

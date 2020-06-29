@@ -3,7 +3,6 @@
 <?= $this->section('css') ?>
 <link rel="stylesheet" href="<?= base_url('assets/datatables/datatables.min.css')?>">  
 <link rel="stylesheet" href="<?= base_url('assets/datatables/Datatables-1.10.21/css/datatables.bootstrap.min.css')?>">
-<link rel="stylesheet" href="<?= base_url('assets/datatables/Responsive-2.2.5/css/responsive.bootstrap4.min.css')?>">
 <style>
     .tab-content {
         max-width: 800px;

@@ -72,6 +72,7 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 
 	$routes->get('retirados', 'admin/Retirados::index');
 	$routes->post('retirar-ejemplar', 'admin/Retirados::retirarEjemplar');
+	$routes->post('editar-retirados', 'admin/Retirados::actualizarRetirados');
 	$routes->get('retiros', 'admin/Retiros::index');
 	$routes->get('Usuarios', 'admin/Usuarios::index');
 });
