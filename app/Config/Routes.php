@@ -36,24 +36,19 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->get('mis-jugadas', 'jugador/Jugar::misJugadas');
 	$routes->post('crear-jugada', 'jugador/Jugar::crearJugada');
 	$routes->post('editar-jugada', 'jugador/Jugar::editarJugada');
-
-	$routes->post('cedulaExists', 'Usuario::cedulaExists');
-
-
 	$routes->get('abonar', 'jugador/Abonar::index');
 	$routes->post('crear-abono', 'jugador/Abonar::insertarAbono');
-
 	$routes->get('puntuacion/(:any)', 'jugador\Puntuacion::index/$1');
 	$routes->get('puntuacion', 'jugador/Puntuacion::index');	
-
 	$routes->get('retirar', 'jugador/Retirar::index');	
 	$routes->post('agregar-retiro', 'jugador/Retirar::crearRetiro');
-
 	$routes->add('perfil', 'Usuario::perfil');
 	$routes->add('mis-cuentas', 'jugador/Bancos::misCuentas');	
 	$routes->post('agregar-cuenta', 'jugador/Bancos::registrarCuenta');
 	$routes->post('editar-cuenta', 'jugador/Bancos::editarCuenta');
 	$routes->get('mis-transacciones', 'jugador/Transacciones::index');
+	$routes->post('cedulaExists', 'Usuario::cedulaExists');
+	$routes->post('userExists', 'Usuario::userExists');
 	$routes->get('salir', 'Usuario::cerrarSesion');
 });
 
@@ -61,6 +56,10 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 	
 	$routes->get('/', 'admin/Dashboard::index');
 	$routes->get('dashboard', 'admin/Dashboard::index');
+	$routes->get('usuarios', 'admin/Usuarios::index');
+	$routes->get('usuarios/(:any)', 'admin\Usuarios::Detalles/$1');
+	$routes->post('cambiar-rol', 'admin\Usuarios::cambiarRol');
+
 	$routes->get('abonos', 'admin/Abonos::index');
 
 	$routes->get('jornadas', 'admin/Jornada::index');	
@@ -73,8 +72,7 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 	$routes->get('retirados', 'admin/Retirados::index');
 	$routes->post('retirar-ejemplar', 'admin/Retirados::retirarEjemplar');
 	$routes->post('editar-retirados', 'admin/Retirados::actualizarRetirados');
-	$routes->get('retiros', 'admin/Retiros::index');
-	$routes->get('Usuarios', 'admin/Usuarios::index');
+	$routes->get('retiros', 'admin/Retiros::index');	
 });
 
 $routes->add('registro', 'Usuario::registro');

@@ -12,7 +12,7 @@ class JugadaModel extends Model {
         '2va_pts','3va_ejemplar','3va_pts',
         '4va_ejemplar','4va_pts','5va_ejemplar',
         '5va_pts','6va_ejemplar','6va_pts',
-        'total_pts', 'esGratis'
+        'total_pts', 'esGratis', 'jugado_por'
     ];
 
     public function getAllByJornadaId(int $jornada_id) {
@@ -38,10 +38,40 @@ class JugadaModel extends Model {
         return $query;
     }
 
+    public function getMisJugadasByUserAdmin(string $usuario) {
+        $builder = $this->db->table('jugadas');
+        $query = $builder
+        ->select('jugada_id, jornada_id, usuario, jugado_por, DATE_FORMAT(fecha_jugada, "%d/%m") AS fecha_jugada, 1va_ejemplar, 2va_ejemplar, 3va_ejemplar, 4va_ejemplar, 5va_ejemplar, 6va_ejemplar,
+        1va_pts, 2va_pts, 3va_pts, 4va_pts, 5va_pts, 6va_pts, total_pts')
+        ->where('usuario', $usuario)        
+        ->orWhere('jugado_por', $usuario)        
+        ->orderBy('fecha_jugada DESC')
+        ->get()->getResultArray();
+        return $query;
+    }
+
+    public function getJugadasByUserAdmin(string $usuario) {
+        $builder = $this->db->table('jugadas');
+        $query = $builder
+        ->select('DATE_FORMAT(jugadas.fecha_jugada, "%d/%m %H:%m") AS fecha_jugada, DATE_FORMAT(jornadas.fecha_jornada, "%d/%m/%Y") AS fecha_jornada,
+        jugadas.total_pts, IF(jugadas.esGratis = 1, "Gratis" ,jornadas.coste_jugada) as coste_jugada')
+        ->where('usuario', $usuario)
+        ->join('jornadas', 'jugadas.jornada_id = jornadas.jornada_id')
+        ->orderBy('fecha_jugada DESC')
+        ->get()->getResultArray();
+        return $query;
+    }
+
     public function actualizarJugada(int $jugada_id, string $usuario, array $data) {
         $builder = $this->db->table('jugadas');
         $builder->where('jugada_id', $jugada_id)
         ->where('usuario', $usuario)
+        ->set($data)->update();
+    }
+
+    public function actualizarJugadaAdmin(int $jugada_id, array $data) {
+        $builder = $this->db->table('jugadas');
+        $builder->where('jugada_id', $jugada_id)        
         ->set($data)->update();
     }
      

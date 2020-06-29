@@ -12,12 +12,13 @@ class UsuarioModel extends Model
         'apellido', 
         'cedula', 
         'usuario_email', 
-        'usuario', 
+        'usuario',         
         'password',        
         'usuario_saldo',
         'contador',
         'fecha_creado',
-        'last_login'
+        'last_login',
+        'role'
     ];
 
     protected $beforeInsert = ['hashPassword'];
@@ -29,6 +30,15 @@ class UsuarioModel extends Model
         $data['data']['password'] = password_hash($data['data']['password'], PASSWORD_DEFAULT);                             
 
         return $data;
+    }
+
+    public function getAll() {
+        $builder = $this->db->table('usuarios'); 
+        $query = $builder
+        ->select('usuario, usuario_saldo, DATE_FORMAT(fecha_creado, "%d/%m/%Y") as fecha_creado, DATE_FORMAT(last_login, "%d/%m %H:%i") as login, role')
+        ->orderBy('last_login DESC')        
+        ->get()->getResultArray();
+        return $query;
     }
 
     public function getUserByEmail(string $email) {

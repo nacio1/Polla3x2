@@ -5,12 +5,7 @@ use App\Models\BancosModel;
 use CodeIgniter\I18n\Time;
 
 class Usuario extends BaseController
-{
-	/*public function index()
-	{
-		return view('welcome_message');
-    }*/   
-    
+{     
     public function login() {  
         $data = [];                 
         if($this->request->getMethod() == 'post') {
@@ -105,7 +100,7 @@ class Usuario extends BaseController
                 $rules = [
                     'nombre' => 'required|min_length[2]|max_length[20]',
                     'apellido' => 'required|min_length[2]|max_length[20]',                
-                    'cedula' => 'required|min_length[7]|max_length[8]|is_natural',                
+                    'cedula' => 'required|min_length[7]|max_length[8]|is_natural|is_unique[usuarios.cedula]',                
                 ];
                 if($postData['password'] != '') {
                     $rules['password'] = 'min_length[8]';

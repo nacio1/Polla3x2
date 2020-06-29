@@ -62,6 +62,9 @@ $uri = service('uri');
                         <th data-priority="1"scope="col">Puntos</th>  
                         <?php if($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>     
                         <th data-priority="-1" scope="col">Editar</th>     
+                        <?php } ?>
+                        <?php if(session('usuario_role') == 'admin') { ?> 
+                        <th>Usuario</th> 
                         <?php } ?>  
                         </tr>
                     </thead>
@@ -81,14 +84,17 @@ $uri = service('uri');
                             <td><?= $mi_jugada['6va_ejemplar']?></td>                                                
                             <td><?= $mi_jugada['total_pts']?></td>   
                             <?php if($GLOBALS['status'] && !$GLOBALS['cierre']) { ?>
-                            <td>
-                            <?php if($mi_jugada['jornada_id'] == $GLOBALS['jornada_id'] ) { ?>
-                            <button type="button" class="btn btn-primary edit-button" data-toggle="modal" data-target="#editarModal">
-                            <i class="fas fa-edit"></i>
-                            </button>
-                            <?php } ?>
-                            </td>   
-                            <?php } ?>    
+                              <td>
+                                <?php if($mi_jugada['jornada_id'] == $GLOBALS['jornada_id'] ) { ?>
+                                  <button type="button" class="btn btn-primary edit-button" data-toggle="modal" data-target="#editarModal">
+                                    <i class="fas fa-edit"></i>
+                                  </button>
+                                <?php } ?>
+                              </td>   
+                            <?php } ?>   
+                            <?php if(session('usuario_role') == 'admin') { ?> 
+                              <td><?= $mi_jugada['usuario']?></td> 
+                            <?php } ?>  
                             </tr>
                         <?php } ?>
                     <?php }else{ ?>

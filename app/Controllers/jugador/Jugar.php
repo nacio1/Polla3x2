@@ -36,7 +36,11 @@ class Jugar extends BaseController
 				
 		$data['title'] = 'Mis jugadas';			
 		$data['premio'] = $premioModel->where('jornada_id',$GLOBALS['jornada_id'])->first();
-		$data['mis_jugadas'] = $jugadaModel->getJugadasByUser(session('usuario'));
+		if(session('usuario_role') == 'admin'){
+			$data['mis_jugadas'] = $jugadaModel->getMisJugadasByUserAdmin(session('usuario'));
+		}else{
+			$data['mis_jugadas'] = $jugadaModel->getJugadasByUser(session('usuario'));
+		}		
 		$data['gratis'] = $jugadaModel->contarGratis($GLOBALS['jornada_id']);	
 		if($data['mis_jugadas']){
 			$data['mis_jugadas'] = ordernarJugadas($data['mis_jugadas']);
@@ -49,6 +53,27 @@ class Jugar extends BaseController
 			return redirect()->to('jugar');
 		}
 		$data = $this->request->getPost();
+
+		//Si es jugada de admin-------------
+		if( $data['usuario'] != '' && session('usuario_role') == 'admin' ) {
+			
+			if(session('usuario_saldo') < $GLOBALS['coste_jugada']) {//Chequear saldo								
+				return redirect()->to('jugar')->with('message', setSwaMessage('','',3));
+			}
+			$data['jornada_id'] = $GLOBALS['jornada_id'];			
+			$data['jugado_por'] = session('usuario');
+			$data['fecha_jugada'] = new Time('now', 'America/Caracas', 'en_US');
+
+			$jugadaModel = new JugadaModel();
+			$jugadaModel->save($data);
+			$this->restarSaldo();
+			$this->actualizarPremio();
+
+			$message = setSwaMessage('Jugada Registrada', 'Tu jugada ha sido registrada');	
+			return redirect()->to('jugar')->with('message', $message);
+		}
+		//Si es jugada admin---------------
+
 		if(session('usuario_contador') < 2) {
 			if(session('usuario_saldo') < $GLOBALS['coste_jugada']) {//Chequear saldo si no es gratis								
 				return redirect()->to('jugar')->with('message', setSwaMessage('','',3));
@@ -92,9 +117,7 @@ class Jugar extends BaseController
 		$usuarioController = new Usuario();
 		$usuarioController->setUserSession(session('usuario'));
 
-		$message = setSwaMessage('Jugada Registrada', 'Tu jugada ha sido registrada');
-		//$message = "Swal.fire('Jugada Registrada', 'Tu jugada ha sido registrada', 'success')";
-
+		$message = setSwaMessage('Jugada Registrada', 'Tu jugada ha sido registrada');	
 		return redirect()->to('jugar')->with('message', $message);
 		
 	}
@@ -124,11 +147,13 @@ class Jugar extends BaseController
 			}	
 
 			$jugadaModel = new JugadaModel();
-			$jugadaModel->actualizarJugada($data['jugada_id'], session('usuario'), $data);
-
-			//$message = setSwaMessage('Jugada ctualizada', 'Tu jugada ha sido actualizada');
-			echo '1';
-			
+			if(session('usuario_role') == 'admin'){
+				$jugadaModel->actualizarJugadaAdmin($data['jugada_id'], $data);
+			}else{
+				$jugadaModel->actualizarJugada($data['jugada_id'], session('usuario'), $data);
+			}			
+		
+			echo '1';			
 		}
 	}	
 

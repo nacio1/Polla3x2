@@ -23,6 +23,12 @@ $uri = service('uri');
         <div class="jugar-wrapper">
             <?= form_open('jugador/crear-jugada','method="POST" id="jugar-form" class=""') ?> 
                 <h1 class="mb-4">Sella tu jugada</h1> 
+                <?php if(session('usuario_role') == 'admin') { ?>
+                    <div style="max-width: 200px" class="form-group">
+                        <label for="usuario">Usuario</label>
+                        <input type="text" id="usuario" name="usuario" class="form-control" placeholder="Ingresa el usuario">
+                    </div>
+                <?php } ?>
                 <?php                         
                 for($i=0; $i<6; $i++) {
                     $name = $i + 1 .'va_ejemplar';//nombre del input
@@ -78,4 +84,25 @@ window.cierre = '<?= $GLOBALS['cierre'] ?>';
 window.status = '<?= $GLOBALS['status'] ?>';
 </script>
 <script src="<?= base_url('js/premio.js') ?>"></script>
+<?php if(session('usuario_role') == 'admin') { ?>
+<script>
+$(document).ready(function(){
+    $('#usuario').change(function(){
+        var usuario = $(this).val();
+        $.ajax({  
+        url: urlBase + "jugador/userExists",  
+        method:"POST",  
+        data: {usuario},         
+        success:function(data){  
+            if(data == 'false') {                 
+                $('#usuario').parent().append('<label id="error" style="color: #b33939">Usuario ya existe</label>')                         
+            }else{
+                $('#error').remove();
+            }
+        }  
+    });
+    })
+});
+</script>                    
+<?php } ?>
 <?= $this->endSection() ?>
