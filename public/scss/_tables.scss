@@ -36,8 +36,11 @@
     td, th {
         padding: .4rem .5rem;
     }
+    .light-cell {
+        @include set-background(lighten($secondary-color, 40%));
+    }
     
     .dark-cell {
-        @include set-background(lighten($secondary-color, 20%));
+        @include set-background(lighten($secondary-color, 15%));
     }
 }

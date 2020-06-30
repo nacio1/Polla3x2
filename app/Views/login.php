@@ -54,17 +54,7 @@
         <div class="input-group-append">
             <span class="input-group-text" id="basic-addon2"><i class="fas fa-eye-slash"></i></span>
         </div>        
-    </div>
-   
-
-    <!--<div class="form-group">
-        <label for="usuario">Usuario</label>
-        <input type="text" id="usuario" name="usuario" value="<?= set_value('usuario')?>" class="form-control" placeholder="Ingresa tu usuario o correo">
-    </div>
-    <div class="form-group">
-        <label for="Password">Contraseña</label>
-        <input type="password" id="password" name="password" class="form-control" placeholder="Contraseña">  
-    </div> --> 
+    </div>    
             
     <button class="btn btn-lg btn-block my-4" id="form-submit" type="submit">Iniciar Sesión</button>   
 

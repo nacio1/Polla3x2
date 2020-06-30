@@ -261,8 +261,13 @@ footer {
   padding: .4rem .5rem;
 }
 
+.table-puntuacion .light-cell {
+  background-color: #8f9bac;
+  color: #fff;
+}
+
 .table-puntuacion .dark-cell {
-  background-color: #5a687b;
+  background-color: #4f5b6c;
   color: #fff;
 }
 

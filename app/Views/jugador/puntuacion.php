@@ -30,21 +30,21 @@
         <table class="table datatables table-striped table-puntuacion dt-responsive nowrap" width="100%"> 
             <thead class="">
                 <tr>                
-                <th scope="col">Pos</th>
+                <th class="light-cell" scope="col">Pos</th>
                 <th data-priority="1" scope="col">Usuario</th>
                 <th scope="col">Hora</th>                  
                 <th data-priority="2" scope="col">1va</th>
-                <th scope="col">Pts</th>
+                <th class="light-cell" scope="col">Pts</th>
                 <th data-priority="2" scope="col">2va</th>
-                <th scope="col">Pts</th>  
+                <th class="light-cell" scope="col">Pts</th>  
                 <th data-priority="2" scope="col">3va</th>
-                <th scope="col">Pts</th>
+                <th class="light-cell" scope="col">Pts</th>
                 <th data-priority="2" scope="col">4va</th>
-                <th scope="col">Pts</th>
+                <th class="light-cell" scope="col">Pts</th>
                 <th data-priority="2" scope="col">5va</th>
-                <th scope="col">Pts</th>   
+                <th class="light-cell" scope="col">Pts</th>   
                 <th data-priority="2" scope="col">6va</th>
-                <th scope="col">Pts</th>       
+                <th class="light-cell" scope="col">Pts</th>       
                 <th class="dark-cell"  data-priority="-1" scope="col">Total</th>       
                 </tr>
             </thead>
@@ -52,21 +52,21 @@
             <?php                       
             foreach ($jugadas as $jugada) { ?>              
                 <tr>
-                <td><?= $i ?></td>   
+                <td class="light-cell"><?= $i ?></td>   
                 <td><?= $jugada['usuario'] ?></td>   
                 <td><?= $jugada['fecha_jugada'] ?></td>   
                 <td><?= $jugada['1va_ejemplar'] ?></td>   
-                <td><?= $jugada['1va_pts'] ?></td>  
+                <td class="light-cell"><?= $jugada['1va_pts'] ?></td>  
                 <td><?= $jugada['2va_ejemplar'] ?></td>   
-                <td><?= $jugada['2va_pts'] ?></td>
+                <td class="light-cell"><?= $jugada['2va_pts'] ?></td>
                 <td><?= $jugada['3va_ejemplar'] ?></td>   
-                <td><?= $jugada['3va_pts'] ?></td>
+                <td class="light-cell"><?= $jugada['3va_pts'] ?></td>
                 <td><?= $jugada['4va_ejemplar'] ?></td>   
-                <td><?= $jugada['4va_pts'] ?></td>
+                <td class="light-cell"><?= $jugada['4va_pts'] ?></td>
                 <td><?= $jugada['5va_ejemplar'] ?></td>   
-                <td><?= $jugada['5va_pts'] ?></td>
+                <td class="light-cell"><?= $jugada['5va_pts'] ?></td>
                 <td><?= $jugada['6va_ejemplar'] ?></td>   
-                <td><?= $jugada['6va_pts'] ?></td> 
+                <td  class="light-cell"><?= $jugada['6va_pts'] ?></td> 
                 <td class="dark-cell"><?= $jugada['total_pts'] ?></td> 
                 </tr>    
             <?php $i++; }//endforeach ?>     

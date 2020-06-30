@@ -54,4 +54,9 @@
 </form>
 </body>
 </html>
+<script>
+$(document).ready(function(){
+    window.urlBase = '<?= base_url() ?>/';
+})
+</script>
 <script src="js/registro.js"></script>

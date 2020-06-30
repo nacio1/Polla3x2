@@ -7,7 +7,7 @@ $(document).ready(function() {
                 maxlength: 20,
                 alphanumeric: true,
                 remote: {
-                    url: 'http://localhost/usuario/userExists',
+                    url: urlBase + 'userExists',
                     type: 'post',
                     dataType: 'json',
                     data: {
@@ -30,7 +30,7 @@ $(document).ready(function() {
                 email: true,
                 maxlength: 50,
                 remote: {
-                    url: 'http://localhost/usuario/emailExists',
+                    url: urlBase + 'emailExists',
                     type: 'post',
                     dataType: 'json',
                     data: {

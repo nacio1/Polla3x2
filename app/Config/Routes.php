@@ -76,6 +76,8 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 });
 
 $routes->add('registro', 'Usuario::registro');
+$routes->post('userExists', 'Usuario::userExists');
+$routes->post('emailExists', 'Usuario::emailExists');
 $routes->add('login', 'Usuario::login');
 $routes->get('salir', 'Usuario::cerrarSesion');
 $routes->get('reglamento', 'Home::reglamento');

@@ -22,7 +22,8 @@
         </div> 
     </div>    
     <div class="col-12 text-center mt-2">            
-        <button type="submit" class="btn primary-btn btn-lg retirar-button">Retirar</button>                      
+        <button type="submit" class="btn primary-btn btn-lg retirar-button">Retirar</button>  
+        <p style="max-width: 400px; font-size: 14px" class="text-muted mt-2 mx-auto">Una vez verificado tu retiro será procesado. Los pagos se hacen generalmente desde banesco.</p>                       
     </div> 
 </form>
 <?= $this->endSection() ?>
