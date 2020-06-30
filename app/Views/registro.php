@@ -27,7 +27,7 @@
     </script>
 </div>
 <form class="form-signin" id="registro-form" action="<?= base_url('registro') ?>" method="POST">
-    <a class="img-wrapper"><img class="img-fluid mx-auto" src="<?= base_url('img/polla3x2-logo.png') ?>"></a>
+    <a href="/" class="img-wrapper"><img class="img-fluid mx-auto" src="<?= base_url('img/polla3x2-logo.png') ?>"></a>
     <h1 class="h3 mb-3 font-weight-normal">Regístrate ahora</h1>    
     <div class="form-group">
         <label for="usuario">Usuario</label>
