@@ -61,7 +61,7 @@
 <div class="container">
     <div class="row">
     <a href="<?= base_url('reglamento') ?>" class="col-sm-4">Reglamento</a href="#">
-    <a href="#" class="col-sm-4">Términos y servicios</a href="#">
+    <a href="<?= base_url('reglamento') ?>" class="col-sm-4">Términos y servicios</a href="#">
     <a href="#" class="col-sm-4">Siguenos en <i class="fab fa-twitter"></i></a href="#">
     </div>      
     <p>Polla3x2 &reg Todos los derechos reservados</p>

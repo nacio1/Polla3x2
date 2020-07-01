@@ -44,6 +44,7 @@ class Usuario extends BaseController
         $newData = [
             'usuario_id'  => $user['usuario_id'],
             'usuario'  => $user['usuario'],                    
+            'usuario_referido'  => $user['referido'],                    
             'usuario_email'     => $user['usuario_email'],
             'usuario_saldo' => $user['usuario_saldo'],                    
             'usuario_role' => $user['role'],
@@ -79,6 +80,13 @@ class Usuario extends BaseController
                     'password' => $this->request->getVar('password'),
                     'fecha_creado' => new Time('now', 'America/Caracas', 'en_US')
                 ];
+
+                if(session()->has('referido')){
+                    if($referido = $usuarioModel->getRererido(session('referido'))){
+                        $newUser['referido'] = $referido['usuario'];
+                        unset($_SESSION['referido']);
+                    }
+                }
 
                 $usuarioModel->save($newUser);
 

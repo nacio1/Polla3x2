@@ -26,6 +26,7 @@ class Usuarios extends BaseController
         $data['abonos'] = $abonoModel->getByUser($usuario);
 		$data['retiros'] = $retiroModel->getByUser($usuario);
 		$data['jugadas'] = $jugadaModel->getJugadasByUserAdmin($usuario);
+		$data['referidos'] = $usuarioModel->where('referido', $usuario)->orderBy('last_login DESC')->findAll();
 		$data['usuario'] = $usuarioModel->where('usuario', $usuario)->first();
 		return view('admin/usuario_datos', $data);
 	}

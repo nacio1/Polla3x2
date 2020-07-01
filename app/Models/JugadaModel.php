@@ -62,6 +62,19 @@ class JugadaModel extends Model {
         return $query;
     }
 
+    public function getJugadasReferido(string $usuario, string $referido) {
+        $builder = $this->db->table('jugadas');
+        $query = $builder
+        ->select('DATE_FORMAT(jugadas.fecha_jugada, "%d/%m %H:%m") AS fecha_jugada, DATE_FORMAT(jornadas.fecha_jornada, "%d/%m/%Y") AS fecha_jornada,
+        jugadas.total_pts, IF(jugadas.esGratis = 1, "Gratis" ,jornadas.coste_jugada) as coste_jugada,
+        IF(jugadas.esGratis = 0, coste_jugada * (1 - (jornadas.1er_lugar + jornadas.2do_lugar) ) / 2, 0 ) AS ganancia')
+        ->where('usuario', $usuario)
+        ->join('jornadas', 'jugadas.jornada_id = jornadas.jornada_id')
+        ->orderBy('fecha_jugada DESC')
+        ->get()->getResultArray();
+        return $query;
+    }   
+
     public function actualizarJugada(int $jugada_id, string $usuario, array $data) {
         $builder = $this->db->table('jugadas');
         $builder->where('jugada_id', $jugada_id)

@@ -11,6 +11,7 @@
 <?= $this->endSection() ?>
 
 <?= $this->section('content') ?>
+<h1 style="font-weight: 400" class="mb-4">Mis Transacciones</h1>
 <div class="transacciones-nav">
     <ul class="nav nav-pills mb-3">
         <li class="nav-item" role="presentation">

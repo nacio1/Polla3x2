@@ -28,7 +28,11 @@
         <li class="nav-item" role="presentation">
             <a  class="nav-link" id="pills-retiros-tab" data-toggle="pill" href="#pills-retiros" role="tab" aria-controls="pills-retiros" aria-selected="false">
             Retiros</a>
-        </li>                    
+        </li>      
+        <li class="nav-item" role="presentation">
+            <a  class="nav-link" id="pills-referidos-tab" data-toggle="pill" href="#pills-referidos" role="tab" aria-controls="pills-referidos" aria-selected="false">
+            Referidos</a>
+        </li>              
     </ul>
 </div>
 <div class="tab-content" id="pills-tabContent">
@@ -115,6 +119,31 @@
         </div><!-- cierre col --> 
     </div><!-- cierre row -->   
   </div><!-- cierre Pills retiros -->  
+
+  <div class="tab-pane fade" id="pills-referidos" role="tabpanel" aria-labelledby="pills-referidos-tab">    
+    <table style="max-width: 300px" class="table  table-striped"> 
+        <thead>
+            <tr>                                      
+            <th scope="col">Usuario</th>                                     
+            <th scope="col">Jugadas</th>                                                            
+            </tr>
+        </thead>
+        <tbody>    
+        <?php if($referidos) { 
+            foreach($referidos as $referido) {
+        ?> 
+        <tr>
+        <td><?= $referido['usuario']?></td>
+        <td><a href="<?= base_url('admin/referidos').'/'.$referido['usuario']?>" class="btn btn-primary">Ver</a></td>
+        </tr>         
+        <?php } ?>
+        <?php }else{ ?>   
+            <tr><td colspan="2">
+            <h4 style="font-weight: 400" class="text-muted text-center mt-4 mb-5">sin referidos</h3></td></tr>       
+        <?php } ?>                   
+        </tbody>                
+    </table>          
+  </div><!-- cierre Pills referidos --> 
 
 </div><!-- cierre tab content --> 
 <?= $this->endSection() ?>

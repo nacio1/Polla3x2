@@ -13,6 +13,7 @@ class UsuarioModel extends Model
         'cedula', 
         'usuario_email', 
         'usuario',         
+        'referido',         
         'password',        
         'usuario_saldo',
         'contador',
@@ -55,6 +56,14 @@ class UsuarioModel extends Model
         $builder = $this->db->table('usuarios'); 
         $query = $builder->where('usuario_email', $usuario)
         ->orWhere('usuario', $usuario)
+        ->get()->getRowArray();
+        return $query;
+    }
+
+    public function getRererido(string $usuario) {
+        $builder = $this->db->table('usuarios'); 
+        $query = $builder
+        ->where('usuario', $usuario)  
         ->get()->getRowArray();
         return $query;
     }

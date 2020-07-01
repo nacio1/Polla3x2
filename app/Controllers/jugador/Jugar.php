@@ -55,7 +55,7 @@ class Jugar extends BaseController
 		$data = $this->request->getPost();
 
 		//Si es jugada de admin-------------
-		if( $data['usuario'] != '' && session('usuario_role') == 'admin' ) {
+		if( isset($data['usuario']) &&  $data['usuario'] != '' && session('usuario_role') == 'admin' ) {
 			
 			if(session('usuario_saldo') < $GLOBALS['coste_jugada']) {//Chequear saldo								
 				return redirect()->to('jugar')->with('message', setSwaMessage('','',3));
@@ -109,10 +109,13 @@ class Jugar extends BaseController
 		if(session('usuario_contador') < 2) { 
 			$this->restarSaldo();
 			$this->actualizarPremio();
+			if(session('usuario_referido')) {
+				$this->actualizarSaldoReferido();
+			}
 		}else{			
 			$this->actualizarPremio($esGratis = TRUE);//Gratis
 		}
-		$this->actualizarContador();//Actualizar contador
+		$this->actualizarContador();//Actualizar contador			
 
 		$usuarioController = new Usuario();
 		$usuarioController->setUserSession(session('usuario'));
@@ -210,6 +213,21 @@ class Jugar extends BaseController
         
         $usuarioModel = new UsuarioModel();        
         $usuarioModel->update(session('usuario_id'), $data);        
-    } 
+	} 
+	
+	protected function actualizarSaldoReferido() {
+		$usuarioModel = new UsuarioModel();
+		$usuario = $usuarioModel->where('usuario', session('usuario_referido'))->first();
+		$newSaldo =  $usuario['usuario_saldo'] + ( $GLOBALS['coste_jugada'] * 
+		( 1 - ( $GLOBALS['1er_lugar'] +  $GLOBALS['2do_lugar'] ) )  
+		/ 2 ) ;
+
+		$newData = [
+			'usuario_id' => $usuario['usuario_id'],
+			'usuario_saldo' => $newSaldo
+		];
+
+		$usuarioModel->save($newData);
+	}
 	//--------------------------------------------------------------------	
 }

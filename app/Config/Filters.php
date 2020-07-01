@@ -14,6 +14,7 @@ class Filters extends BaseConfig
 		'isAdmin'  => \App\Filters\isAdmin::class,
 		'protectUrl'  => \App\Filters\protectUrl::class,
 		'actualizarSaldo'  => \App\Filters\actualizarsaldo::class,
+		'checkReferidoLink'  => \App\Filters\checkReferidoLink::class,
 	];
 
 	// Always applied before every request

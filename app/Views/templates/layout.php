@@ -52,7 +52,8 @@ $uri = service('uri');
                 </div>             
                 <div class="user-menu">
                     <a href="<?= base_url('jugador/mis-cuentas') ?>">Mis cuentas</a>
-                    <a href="<?= base_url('jugador/mis-transacciones') ?>">Mis transacciones</a>
+                    <a href="<?= base_url('jugador/mis-transacciones') ?>">Mis transacciones</a>                    
+                    <a href="<?= base_url('jugador/referidos') ?>">Mis referidos</a>                                        
                     <a href="<?= base_url('jugador/salir') ?>">Cerrar sesión</a>
                 </div>  
             </div>
