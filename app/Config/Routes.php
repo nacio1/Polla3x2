@@ -47,8 +47,9 @@ $routes->group('jugador', ['filter' => 'isLoggedIn'], function($routes){
 	$routes->post('agregar-cuenta', 'jugador/Bancos::registrarCuenta');
 	$routes->post('editar-cuenta', 'jugador/Bancos::editarCuenta');
 	$routes->get('mis-transacciones', 'jugador/Transacciones::index');
-	$routes->get('referidos', 'jugador/Referidos::index');
-	$routes->get('referidos/(:any)', 'jugador\Referidos::referidoJugadas/$1');
+	//Referidos
+	//$routes->get('referidos', 'jugador/Referidos::index');
+	//$routes->get('referidos/(:any)', 'jugador\Referidos::referidoJugadas/$1');
 	$routes->post('cedulaExists', 'Usuario::cedulaExists');
 	$routes->post('userExists', 'Usuario::userExists');
 	$routes->get('salir', 'Usuario::cerrarSesion');
@@ -60,7 +61,8 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 	$routes->get('dashboard', 'admin/Dashboard::index');
 	$routes->get('usuarios', 'admin/Usuarios::index');
 	$routes->get('usuarios/(:any)', 'admin\Usuarios::Detalles/$1');
-	$routes->get('referidos/(:any)', 'jugador\Referidos::referidoJugadasAdmin/$1');
+	//Referidos
+	//$routes->get('referidos/(:any)', 'jugador\Referidos::referidoJugadasAdmin/$1');
 	$routes->post('cambiar-rol', 'admin\Usuarios::cambiarRol');
 
 	$routes->get('abonos', 'admin/Abonos::index');
@@ -78,14 +80,14 @@ $routes->group('admin', ['filter' => 'isAdmin'], function($routes){
 	$routes->get('retiros', 'admin/Retiros::index');	
 });
 
-$routes->add('registro', 'Usuario::registro', ['filter' => 'checkReferidoLink']);
+$routes->add('registro', 'Usuario::registro');
 $routes->post('userExists', 'Usuario::userExists');
 $routes->post('emailExists', 'Usuario::emailExists');
 $routes->add('login', 'Usuario::login');
 $routes->get('salir', 'Usuario::cerrarSesion');
 $routes->get('reglamento', 'Home::reglamento');
 $routes->get('terminos', 'Home::terminos');
-$routes->get('/', 'Home::index', ['filter' => 'isLoggedIn', 'filter' => 'checkReferidoLink']);
+$routes->get('/', 'Home::index', ['filter' => 'isLoggedIn']);
 
 /**
  * --------------------------------------------------------------------
